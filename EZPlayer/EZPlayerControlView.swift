@@ -50,6 +50,7 @@ open class EZPlayerControlView: UIView{
 
     @IBOutlet weak var airplayContainer: UIView!
 
+    @IBOutlet weak var shareButton: UIButton!
     // MARK: - Life cycle
 
     deinit {

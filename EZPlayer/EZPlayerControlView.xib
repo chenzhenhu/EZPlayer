@@ -42,6 +42,9 @@
                             <state key="normal" image="btn_share24x24">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="shareButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ffj-Zi-STg"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29935344829999999" colorSpace="custom" customColorSpace="sRGB"/>

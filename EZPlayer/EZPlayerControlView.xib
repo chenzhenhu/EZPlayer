@@ -83,7 +83,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="9U3-R8-TRL"/>
                                     </constraints>
-                                    <state key="normal" image="btn_fulllscreen"/>
+                                    <state key="normal" image="btn_fullscreen"/>
                                     <connections>
                                         <action selector="fullEmbeddedScreenButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="Vjg-ge-LIW"/>
                                     </connections>
@@ -233,7 +233,7 @@
     <resources>
         <image name="btn_audiosubtitle" width="35" height="26"/>
         <image name="btn_back" width="22" height="22"/>
-        <image name="btn_fulllscreen" width="22" height="22"/>
+        <image name="btn_fullscreen" width="22" height="22"/>
         <image name="btn_play" width="22" height="22"/>
         <image name="btn_share" width="22" height="22"/>
     </resources>

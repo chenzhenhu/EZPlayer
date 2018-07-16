@@ -232,9 +232,9 @@
     </objects>
     <resources>
         <image name="btn_audiosubtitle" width="35" height="26"/>
-        <image name="btn_back" width="26" height="26"/>
-        <image name="btn_fullscreen" width="26" height="26"/>
-        <image name="btn_play" width="26" height="26"/>
-        <image name="btn_share" width="26" height="26"/>
+        <image name="btn_back" width="13" height="13"/>
+        <image name="btn_fullscreen" width="13" height="13"/>
+        <image name="btn_play" width="13" height="13"/>
+        <image name="btn_share" width="13" height="13"/>
     </resources>
 </document>

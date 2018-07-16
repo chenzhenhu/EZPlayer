@@ -41,7 +41,8 @@ public extension Notification.Name {
 
     /// FairPlay DRM
     static let EZPlayerDidPersistContentKey = Notification.Name(rawValue: "com.ezplayer.EZPlayerDidPersistContentKey")
-    
+    /// 分享按钮
+    static let EZPlayerPressShare = Notification.Name(rawValue: "com.ezplayer.EZPlayerPressShare")
 }
 
 public extension Notification {
@@ -71,6 +72,9 @@ public extension Notification {
 
         /// FairPlay DRM=
         public static let EZPlayerDidPersistAssetIdentifierKey = "EZPlayerDidPersistAssetIdentifierKey"
+        
+        /// 分享按钮
+        public static let EZPlayerPressShare = "EZPlayerPressShare"
 
     }
 

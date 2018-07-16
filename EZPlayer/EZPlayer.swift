@@ -838,7 +838,10 @@ open class EZPlayer: NSObject {
         
     }
     
-    
+    open func share() {
+        NotificationCenter.default.post(name: .EZPlayerPressShare, object: self, userInfo: nil)
+        print("==================>分享事件触发<==================")
+    }
     
     
     // MARK: - public

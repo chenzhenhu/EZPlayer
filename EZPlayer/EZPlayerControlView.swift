@@ -303,6 +303,13 @@ extension EZPlayerControlView: EZPlayerCustom {
         }
         player.backButtonBlock?(displayMode)
     }
+    
+    @IBAction public func shareButtonPressed(_ sender: Any) {
+        guard let player = self.player else {
+            return
+        }
+        player.share();
+    }
 
 
     // MARK: - EZPlayerGestureRecognizer

@@ -23,7 +23,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" constant="45" id="Uc2-tu-lJb"/>
                             </constraints>
-                            <state key="normal" image="btn_back24x25"/>
+                            <state key="normal" image="btn_back24x24"/>
                             <connections>
                                 <action selector="backButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="kPX-UJ-uqb"/>
                             </connections>
@@ -34,12 +34,12 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWR-1c-ql5" userLabel="Share Button">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWR-1c-ql5" userLabel="Share Button">
                             <rect key="frame" x="590" y="0.0" width="50" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="DyJ-da-J9A"/>
                             </constraints>
-                            <state key="normal" title="分享">
+                            <state key="normal" image="btn_share24x24">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>
@@ -229,8 +229,9 @@
     </objects>
     <resources>
         <image name="btn_audiosubtitle" width="35" height="26"/>
-        <image name="btn_back24x25" width="24" height="25"/>
+        <image name="btn_back24x24" width="24" height="24"/>
         <image name="btn_fullscreen22x22" width="22" height="22"/>
         <image name="btn_play22x22" width="22" height="22"/>
+        <image name="btn_share24x24" width="24" height="24"/>
     </resources>
 </document>

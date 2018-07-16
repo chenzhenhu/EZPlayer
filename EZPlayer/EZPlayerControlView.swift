@@ -373,10 +373,10 @@ extension EZPlayerControlView: EZPlayerCustom {
             break
         case .embedded:
             self.fullEmbeddedScreenButtonWidthConstraint.constant = 50
-            self.fullEmbeddedScreenButton.setImage(UIImage(named: "btn_fullscreen22x22", in: Bundle(for: EZPlayerControlView.self), compatibleWith: nil), for: .normal)
+            self.fullEmbeddedScreenButton.setImage(UIImage(named: "btn_fullscreen", in: Bundle(for: EZPlayerControlView.self), compatibleWith: nil), for: .normal)
         case .fullscreen:
             self.fullEmbeddedScreenButtonWidthConstraint.constant = 50
-            self.fullEmbeddedScreenButton.setImage(UIImage(named: "btn_normalscreen22x22", in: Bundle(for: EZPlayerControlView.self), compatibleWith: nil), for: .normal)
+            self.fullEmbeddedScreenButton.setImage(UIImage(named: "btn_normalscreen", in: Bundle(for: EZPlayerControlView.self), compatibleWith: nil), for: .normal)
             if player.lastDisplayMode == .none{
                 self.fullEmbeddedScreenButtonWidthConstraint.constant = 0
             }
@@ -392,13 +392,13 @@ extension EZPlayerControlView: EZPlayerCustom {
         case .playing ,.buffering:
             //播放状态
             //            self.playPauseButton.isSelected = true //暂停按钮
-            self.playPauseButton.setImage(UIImage(named: "btn_pause22x22", in: Bundle(for: EZPlayerControlView.self), compatibleWith: nil), for: .normal)
+            self.playPauseButton.setImage(UIImage(named: "btn_pause", in: Bundle(for: EZPlayerControlView.self), compatibleWith: nil), for: .normal)
 
         case .seekingBackward ,.seekingForward:
             break
         default:
             //            self.playPauseButton.isSelected = false // 播放按钮
-            self.playPauseButton.setImage(UIImage(named: "btn_play22x22", in: Bundle(for: EZPlayerControlView.self), compatibleWith: nil), for: .normal)
+            self.playPauseButton.setImage(UIImage(named: "btn_play", in: Bundle(for: EZPlayerControlView.self), compatibleWith: nil), for: .normal)
 
         }
 

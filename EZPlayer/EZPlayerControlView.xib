@@ -23,7 +23,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" constant="45" id="Uc2-tu-lJb"/>
                             </constraints>
-                            <state key="normal" image="btn_back24x24"/>
+                            <state key="normal" image="btn_back"/>
                             <connections>
                                 <action selector="backButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="kPX-UJ-uqb"/>
                             </connections>
@@ -39,7 +39,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="DyJ-da-J9A"/>
                             </constraints>
-                            <state key="normal" image="btn_share24x24">
+                            <state key="normal" image="btn_share">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
@@ -73,7 +73,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="PBt-cS-tw1"/>
                                     </constraints>
-                                    <state key="normal" image="btn_play22x22"/>
+                                    <state key="normal" image="btn_play"/>
                                     <connections>
                                         <action selector="playPauseButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="1He-RC-qrK"/>
                                     </connections>
@@ -83,13 +83,13 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="9U3-R8-TRL"/>
                                     </constraints>
-                                    <state key="normal" image="btn_fullscreen22x22"/>
+                                    <state key="normal" image="btn_fulll_screen"/>
                                     <connections>
                                         <action selector="fullEmbeddedScreenButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="Vjg-ge-LIW"/>
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJM-T1-mP9">
-                                    <rect key="frame" x="50" y="11" width="5" height="21"/>
+                                    <rect key="frame" x="50" y="10.5" width="5" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -232,9 +232,9 @@
     </objects>
     <resources>
         <image name="btn_audiosubtitle" width="35" height="26"/>
-        <image name="btn_back24x24" width="24" height="24"/>
-        <image name="btn_fullscreen22x22" width="22" height="22"/>
-        <image name="btn_play22x22" width="22" height="22"/>
-        <image name="btn_share24x24" width="24" height="24"/>
+        <image name="btn_back" width="22" height="22"/>
+        <image name="btn_fulll_screen" width="22" height="22"/>
+        <image name="btn_play" width="22" height="22"/>
+        <image name="btn_share" width="22" height="22"/>
     </resources>
 </document>

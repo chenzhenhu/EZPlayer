@@ -85,10 +85,10 @@ open class EZPlayerControlView: UIView{
         self.airplayContainer.addSubview(airplayView)
         //        self.loading.start()
 
-        let topBgColor = UIColor.init(patternImage: UIImage.init(named: "shadow-1")!)
-        self.navBarContainer.backgroundColor = topBgColor;
-        let bottomBgColor = UIColor.init(patternImage: UIImage.init(named: "shadow-2")!)
-        self.toolBarContainer.backgroundColor = bottomBgColor
+        
+        self.navBarContainer.backgroundColor = UIColor(patternImage: UIImage(named: "shadow_1")!);
+        
+        self.toolBarContainer.backgroundColor = UIColor(patternImage: UIImage(named: "shadow_2")!)
     }
 
     // MARK: - EZPlayerCustomControlView

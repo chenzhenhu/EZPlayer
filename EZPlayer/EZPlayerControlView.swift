@@ -56,6 +56,12 @@ open class EZPlayerControlView: UIView{
     deinit {
 
     }
+    
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        self.timeSlider.setThumbImage(UIImage.init(named: "silder_point"), for: .normal)
+    }
+    
     override open func awakeFromNib() {
         super.awakeFromNib()
         self.timeSlider.value = 0
@@ -67,10 +73,6 @@ open class EZPlayerControlView: UIView{
         self.videoshotPreview.isHidden = true
 
         self.audioSubtitleCCButtonWidthConstraint.constant = 0
-
-        let thumbInage = UIImage(named: "btn_play")
-        self.timeSlider.setThumbImage(thumbInage, for: .normal)
-        self.timeSlider.setThumbImage(thumbInage, for: .highlighted)
 
         self.autohidedControlViews = [self.navBarContainer,self.toolBarContainer]
         //        self.tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGestureTapped(_:)))

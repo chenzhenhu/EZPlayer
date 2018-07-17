@@ -57,11 +57,6 @@ open class EZPlayerControlView: UIView{
 
     }
     
-    open override func layoutSubviews() {
-        super.layoutSubviews()
-        self.timeSlider.setThumbImage(UIImage.init(named: "silder_point"), for: .normal)
-    }
-    
     override open func awakeFromNib() {
         super.awakeFromNib()
         self.timeSlider.value = 0
@@ -90,7 +85,10 @@ open class EZPlayerControlView: UIView{
         self.airplayContainer.addSubview(airplayView)
         //        self.loading.start()
 
-
+        let topBgColor = UIColor.init(patternImage: UIImage.init(named: "shadow-1")!)
+        self.navBarContainer.backgroundColor = topBgColor;
+        let bottomBgColor = UIColor.init(patternImage: UIImage.init(named: "shadow-2")!)
+        self.toolBarContainer.backgroundColor = bottomBgColor
     }
 
     // MARK: - EZPlayerCustomControlView

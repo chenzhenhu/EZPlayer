@@ -839,7 +839,8 @@ open class EZPlayer: NSObject {
     }
     
     open func share() {
-        NotificationCenter.default.post(name: .EZPlayerPressShare, object: self, userInfo: [Notification.Key.EZPlayerPressShare: true])
+        
+        NotificationCenter.default.post(name: .EZPlayerPressShare, object: self, userInfo: [Notification.Key.EZPlayerPressShare: self.player?.currentTime().value ?? 0])
         print("==================>分享事件触发<==================")
     }
     

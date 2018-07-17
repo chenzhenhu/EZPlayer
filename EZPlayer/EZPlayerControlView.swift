@@ -68,7 +68,9 @@ open class EZPlayerControlView: UIView{
 
         self.audioSubtitleCCButtonWidthConstraint.constant = 0
 
-
+        let thumbInage = UIImage(named: "silder_point")
+        self.timeSlider.setThumbImage(thumbInage, for: .normal)
+        self.timeSlider.setThumbImage(thumbInage, for: .highlighted)
 
         self.autohidedControlViews = [self.navBarContainer,self.toolBarContainer]
         //        self.tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGestureTapped(_:)))

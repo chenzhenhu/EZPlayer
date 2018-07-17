@@ -86,9 +86,9 @@ open class EZPlayerControlView: UIView{
         //        self.loading.start()
 
         
-        self.navBarContainer.backgroundColor = UIColor(patternImage: (UIImage(named: "shadow_1"))!)
-        
-        self.toolBarContainer.backgroundColor = UIColor(patternImage: (UIImage(named: "shadow_2"))!)
+//        self.navBarContainer.backgroundColor = UIColor(patternImage: (UIImage(named: "shadow_1"))!)
+//        
+//        self.toolBarContainer.backgroundColor = UIColor(patternImage: (UIImage(named: "shadow_2"))!)
     }
 
     // MARK: - EZPlayerCustomControlView

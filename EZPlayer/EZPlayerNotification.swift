@@ -43,6 +43,9 @@ public extension Notification.Name {
     static let EZPlayerDidPersistContentKey = Notification.Name(rawValue: "com.ezplayer.EZPlayerDidPersistContentKey")
     /// 分享按钮
     static let EZPlayerPressShare = Notification.Name(rawValue: "com.ezplayer.EZPlayerPressShare")
+    
+    ///  返回按钮
+    static let EZPlayerPressBack = Notification.Name(rawValue: "com.ezplayer.EZPlayerPressBack")
 }
 
 public extension Notification {
@@ -75,7 +78,8 @@ public extension Notification {
         
         /// 分享按钮
         public static let EZPlayerPressShare = "EZPlayerPressShare"
-
+        /// 返回按钮
+        public static let EZPlayerPressBack = "EZPlayerPressBack"
     }
 
 }

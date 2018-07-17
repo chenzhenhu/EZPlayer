@@ -68,7 +68,7 @@ open class EZPlayerControlView: UIView{
 
         self.audioSubtitleCCButtonWidthConstraint.constant = 0
 
-        let thumbInage = UIImage(named: "silder_point")
+        let thumbInage = UIImage(named: "btn_play")
         self.timeSlider.setThumbImage(thumbInage, for: .normal)
         self.timeSlider.setThumbImage(thumbInage, for: .highlighted)
 

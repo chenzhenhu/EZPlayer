@@ -28,8 +28,8 @@
                                 <action selector="backButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="kPX-UJ-uqb"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmE-Qv-hao">
-                            <rect key="frame" x="50" y="0.0" width="590" height="40"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmE-Qv-hao">
+                            <rect key="frame" x="50" y="0.0" width="540" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -59,7 +59,7 @@
                         <constraint firstAttribute="bottom" secondItem="GmE-Qv-hao" secondAttribute="bottom" id="m42-Ny-k2A"/>
                         <constraint firstItem="GmE-Qv-hao" firstAttribute="top" secondItem="y8x-Mk-Wfn" secondAttribute="top" id="oZE-uw-axQ"/>
                         <constraint firstAttribute="trailing" secondItem="XWR-1c-ql5" secondAttribute="trailing" id="qDO-cT-ayy"/>
-                        <constraint firstAttribute="trailing" secondItem="GmE-Qv-hao" secondAttribute="trailing" id="tHY-kF-WLC"/>
+                        <constraint firstAttribute="trailing" secondItem="GmE-Qv-hao" secondAttribute="trailing" constant="50" id="tHY-kF-WLC"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Dj-fz-6ak">
@@ -232,9 +232,9 @@
     </objects>
     <resources>
         <image name="btn_audiosubtitle" width="35" height="26"/>
-        <image name="btn_back" width="13" height="13"/>
-        <image name="btn_fullscreen" width="13" height="13"/>
-        <image name="btn_play" width="13" height="13"/>
-        <image name="btn_share" width="13" height="13"/>
+        <image name="btn_back" width="16" height="16"/>
+        <image name="btn_fullscreen" width="16" height="16"/>
+        <image name="btn_play" width="16" height="16"/>
+        <image name="btn_share" width="16" height="16"/>
     </resources>
 </document>

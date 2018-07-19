@@ -118,6 +118,13 @@
                         </progressView>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="m06-7H-FB9">
                             <rect key="frame" x="136" y="5" width="461" height="31"/>
+                            <connections>
+                                <action selector="progressSliderTouchBegan:" destination="iN0-l3-epB" eventType="touchDown" id="HG3-TU-bbS"/>
+                                <action selector="progressSliderTouchEnd:" destination="iN0-l3-epB" eventType="touchUpInside" id="QDb-M9-ZVk"/>
+                                <action selector="progressSliderTouchEnd:" destination="iN0-l3-epB" eventType="touchUpOutside" id="fus-fy-3Rr"/>
+                                <action selector="progressSliderTouchEnd:" destination="iN0-l3-epB" eventType="touchCancel" id="tIW-Xc-M1J"/>
+                                <action selector="progressSliderValueChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="aFh-jX-9gG"/>
+                            </connections>
                         </slider>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

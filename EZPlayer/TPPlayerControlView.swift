@@ -65,14 +65,14 @@ open class TPPlayerControlView: UIView {
     }
     
     
-    @IBAction func progressSliderTouchBegan(_ sender: Any) {
+    @IBAction public func progressSliderTouchBegan(_ sender: Any) {
         guard let player = self.player else {
             return
         }
         self.player(player, progressWillChange: TimeInterval(self.timeSlider.value))
     }
     
-    @IBAction func progressSliderValueChanged(_ sender: Any) {
+    @IBAction public func progressSliderValueChanged(_ sender: Any) {
         guard let player = self.player else {
             return
         }
@@ -101,7 +101,7 @@ open class TPPlayerControlView: UIView {
         }
     }
     
-    @IBAction func progressSliderTouchEnd(_ sender: Any) {
+    @IBAction public func progressSliderTouchEnd(_ sender: Any) {
         self.previewView.isHidden = true
         guard let player = self.player else {
             return

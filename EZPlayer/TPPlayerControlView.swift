@@ -64,6 +64,52 @@ open class TPPlayerControlView: UIView {
         }
     }
     
+    
+    @IBAction func progressSliderTouchBegan(_ sender: Any) {
+        guard let player = self.player else {
+            return
+        }
+        self.player(player, progressWillChange: TimeInterval(self.timeSlider.value))
+    }
+    
+    @IBAction func progressSliderValueChanged(_ sender: Any) {
+        guard let player = self.player else {
+            return
+        }
+        
+        self.player(player, progressChanging: TimeInterval(self.timeSlider.value))
+        
+        if player.isM3U8 {
+            self.previewView.isHidden = false
+            player.generateThumbnails(times: [TimeInterval(self.timeSlider.value)], maximumSize: CGSize(width: self.previewImage.bounds.size.width, height: self.previewImage.bounds.size.height), completionHandler: { (thumbnails) in
+                let trackRect = self.timeSlider.convert(self.timeSlider.bounds, to: nil)
+                let thumbRect = self.timeSlider.thumbRect(forBounds: self.timeSlider.bounds, trackRect: trackRect, value: self.timeSlider.value)
+                var lead = thumbRect.origin.x + thumbRect.size.width / 2 - self.previewView.bounds.size.width / 2
+                if lead < 0 {
+                    lead = 0
+                } else if lead + self.previewView.bounds.size.width > player.view.bounds.width {
+                    lead = player.view.bounds.width - self.previewView.bounds.size.width
+                }
+                self.previewViewLeadingConstraint.constant = lead
+                if thumbnails.count > 0 {
+                    let thumbnail = thumbnails[0]
+                    if thumbnail.result == .succeeded {
+                        self.previewImage.image = thumbnail.image
+                    }
+                }
+            })
+        }
+    }
+    
+    @IBAction func progressSliderTouchEnd(_ sender: Any) {
+        self.previewView.isHidden = true
+        guard let player = self.player else {
+            return
+        }
+        self.player(player, progressDidChange: TimeInterval(self.timeSlider.value))
+    }
+    
+    
     fileprivate func hideControlView(_ animated: Bool) {
         if animated {
             UIView.setAnimationsEnabled(false)

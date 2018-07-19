@@ -34,6 +34,7 @@
 /* Begin PBXBuildFile section */
 		528EB56220FF406D003F060C /* TPPlayerControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528EB56120FF406D003F060C /* TPPlayerControlView.xib */; };
 		528EB56420FF40BC003F060C /* TPPlayerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EB56320FF40BC003F060C /* TPPlayerControlView.swift */; };
+		528EB56621006605003F060C /* TPPlayerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EB56521006605003F060C /* TPPlayerSlider.swift */; };
 		991492311DDC0274005FF2BD /* EZPlayer.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 991492301DDC0274005FF2BD /* EZPlayer.xcassets */; };
 		991492341DDC166A005FF2BD /* AVAsset+EZPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991492331DDC166A005FF2BD /* AVAsset+EZPlayer.swift */; };
 		9919C1441E6D545A00249407 /* EZPlayerAVAssetResourceLoaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9919C1431E6D545A00249407 /* EZPlayerAVAssetResourceLoaderDelegate.swift */; };
@@ -67,6 +68,7 @@
 /* Begin PBXFileReference section */
 		528EB56120FF406D003F060C /* TPPlayerControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPPlayerControlView.xib; sourceTree = "<group>"; };
 		528EB56320FF40BC003F060C /* TPPlayerControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPPlayerControlView.swift; sourceTree = "<group>"; };
+		528EB56521006605003F060C /* TPPlayerSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPPlayerSlider.swift; sourceTree = "<group>"; };
 		991492301DDC0274005FF2BD /* EZPlayer.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = EZPlayer.xcassets; sourceTree = "<group>"; };
 		991492331DDC166A005FF2BD /* AVAsset+EZPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAsset+EZPlayer.swift"; sourceTree = "<group>"; };
 		9919C1431E6D545A00249407 /* EZPlayerAVAssetResourceLoaderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZPlayerAVAssetResourceLoaderDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				995D47A91DFFB05500BEB41B /* EZPlayerFloatContainer.swift */,
 				995D47AB1DFFB0B400BEB41B /* EZPlayerFloatContainerRootViewController.swift */,
 				991BE8521E0035190032C14B /* EZPlayerFloatContainerRootViewController.xib */,
+				528EB56521006605003F060C /* TPPlayerSlider.swift */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				9933B2051DFEFA920066A09A /* EZPlayerThumbnail.swift in Sources */,
 				995D47AC1DFFB0B400BEB41B /* EZPlayerFloatContainerRootViewController.swift in Sources */,
 				99818A681DE948D1000DAC1C /* EZPlayerNotification.swift in Sources */,
+				528EB56621006605003F060C /* TPPlayerSlider.swift in Sources */,
 				99C221DC1DDCB4EB00167DBE /* EZPlayerContentItem.swift in Sources */,
 				99CF4D691E06B43200798ACE /* EZPlayerAudibleLegibleViewController.swift in Sources */,
 				995E79261DD9A04A006CE7E9 /* EZPlayerView.swift in Sources */,

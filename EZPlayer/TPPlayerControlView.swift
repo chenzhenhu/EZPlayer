@@ -47,6 +47,7 @@ open class TPPlayerControlView: UIView {
     
     open override func awakeFromNib() {
         super.awakeFromNib()
+        self.timeSlider.setThumbImage(UIImage(named: "slider_point"), for: .normal)
         self.timeSlider.value = 0
         self.progressView.progress = 0
         self.progressView.progressTintColor = UIColor.lightGray

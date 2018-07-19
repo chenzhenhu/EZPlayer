@@ -15,7 +15,7 @@ open class TPPlayerControlView: UIView {
     weak public var player: EZPlayer? {
         didSet {
             player?.setControlsHidden(false, animated: true)
-//            self.autohidedControlViews()
+            self.autohideControlView()
         }
     }
 
@@ -39,7 +39,7 @@ open class TPPlayerControlView: UIView {
     @IBOutlet weak var loading: EZPlayerLoading!
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var previewViewLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var previewImage: UIImageView!
+    @IBOutlet weak var previewImageView: UIImageView!
     
     
     open override func awakeFromNib() {
@@ -79,12 +79,12 @@ open class TPPlayerControlView: UIView {
         
         self.player(player, progressChanging: TimeInterval(self.timeSlider.value))
         
-        if player.isM3U8 {
+        if !player.isM3U8 {
             self.previewView.isHidden = false
-            player.generateThumbnails(times: [TimeInterval(self.timeSlider.value)], maximumSize: CGSize(width: self.previewImage.bounds.size.width, height: self.previewImage.bounds.size.height), completionHandler: { (thumbnails) in
+            player.generateThumbnails(times: [TimeInterval(self.timeSlider.value)], maximumSize: CGSize(width: self.previewImageView.bounds.size.width, height: self.previewImageView.bounds.size.height), completionHandler: { (thumbnails) in
                 let trackRect = self.timeSlider.convert(self.timeSlider.bounds, to: nil)
                 let thumbRect = self.timeSlider.thumbRect(forBounds: self.timeSlider.bounds, trackRect: trackRect, value: self.timeSlider.value)
-                var lead = thumbRect.origin.x + thumbRect.size.width / 2 - self.previewView.bounds.size.width / 2
+                var lead = thumbRect.origin.x + thumbRect.size.width/2 - self.previewView.bounds.size.width/2
                 if lead < 0 {
                     lead = 0
                 } else if lead + self.previewView.bounds.size.width > player.view.bounds.width {
@@ -94,7 +94,7 @@ open class TPPlayerControlView: UIView {
                 if thumbnails.count > 0 {
                     let thumbnail = thumbnails[0]
                     if thumbnail.result == .succeeded {
-                        self.previewImage.image = thumbnail.image
+                        self.previewImageView.image = thumbnail.image
                     }
                 }
             })

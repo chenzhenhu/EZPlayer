@@ -199,7 +199,7 @@
                 <outlet property="navBarContainer" destination="h7S-fr-kof" id="8WM-nY-6fv"/>
                 <outlet property="navBarContainerTopConstraint" destination="jE8-zZ-s9h" id="s6K-WS-WD6"/>
                 <outlet property="playPauseButton" destination="eee-xV-7aj" id="7ev-1c-mff"/>
-                <outlet property="previewImage" destination="i2y-qC-9Ca" id="mjm-Od-RiM"/>
+                <outlet property="previewImageView" destination="i2y-qC-9Ca" id="exl-Ce-uVe"/>
                 <outlet property="previewView" destination="VBE-oe-Zrh" id="EIO-b1-yXt"/>
                 <outlet property="previewViewLeadingConstraint" destination="7rk-Vi-epP" id="Vfs-AX-Ce6"/>
                 <outlet property="progressView" destination="vIO-KH-f4c" id="Ug4-Ee-Wnb"/>

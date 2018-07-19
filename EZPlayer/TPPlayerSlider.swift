@@ -15,6 +15,11 @@ class TPPlayerSlider: UISlider {
         setThumbImage(UIImage(named: "silder_point"), for: .normal)
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setThumbImage(UIImage(named: "silder_point"), for: .normal)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }

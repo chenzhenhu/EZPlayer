@@ -9,11 +9,6 @@
 import UIKit
 
 class TPPlayerSlider: UISlider {
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setThumbImage(UIImage(named: "silder_point"), for: .normal)
-    }
     
     override func layoutSubviews() {
         super.layoutSubviews()

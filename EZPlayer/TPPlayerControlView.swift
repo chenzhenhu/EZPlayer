@@ -41,6 +41,9 @@ open class TPPlayerControlView: UIView {
     @IBOutlet weak var previewViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var previewImageView: UIImageView!
     
+    var coverImageView: UIImageView = UIImageView.init()
+    
+    
     
     open override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,7 +56,10 @@ open class TPPlayerControlView: UIView {
         self.previewView.isHidden = true
         
         self.autohidedControlViews = [self.navBarContainer, self.toolBarContainer]
-        
+        coverImageView.frame = self.bounds
+        self.addSubview(coverImageView)
+        self.timeSlider.setThumbImage(UIImage(named: "silder_point"), for: .normal)
+        self.timeSlider.setThumbImage(UIImage(named: "silder_point"), for: .highlighted)
     }
     
     fileprivate var isProgressSliderSliding = false {

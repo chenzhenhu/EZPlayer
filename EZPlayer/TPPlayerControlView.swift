@@ -59,6 +59,8 @@ open class TPPlayerControlView: UIView {
         coverImageView.frame = self.bounds
         self.addSubview(coverImageView)
         
+        self.timeSlider.setMinimumTrackImage(UIImage(named: "silder_point"), for: .normal)
+        self.timeSlider.setMaximumTrackImage(UIImage(named: "silder_point"), for: .normal)
         self.timeSlider.setThumbImage(UIImage(named: "silder_point"), for: .normal)
     }
     

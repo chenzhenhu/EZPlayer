@@ -59,6 +59,11 @@ open class TPPlayerControlView: UIView {
         self.autohidedControlViews = [self.navBarContainer, self.toolBarContainer]
         coverImageView.frame = self.bounds
         self.addSubview(coverImageView)
+        
+        if (self.player?.offline)! {
+            shareButton.isHidden = true
+            fullEmbeddedScreenButton.isHidden = true
+        }
     }
     
     fileprivate var isProgressSliderSliding = false {
@@ -297,6 +302,7 @@ extension TPPlayerControlView : EZPlayerCustom {
         let displayMode = player.displayMode
         if displayMode == .fullscreen {
             if player.lastDisplayMode == .embedded {
+                shareButton.isHidden = false
                 player.toEmbedded()
             } else if player.lastDisplayMode == .float {
                 player.toFloat()

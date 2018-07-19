@@ -35,7 +35,7 @@ open class TPPlayerControlView: UIView {
     @IBOutlet weak var fullEmbeddedScreenButtonWidthConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var progressView: UIProgressView!
-    @IBOutlet weak var timeSlider: UISlider!
+    @IBOutlet weak var timeSlider: TPPlayerSlider!
     @IBOutlet weak var loading: EZPlayerLoading!
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var previewViewLeadingConstraint: NSLayoutConstraint!

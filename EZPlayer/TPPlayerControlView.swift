@@ -58,7 +58,8 @@ open class TPPlayerControlView: UIView {
         self.autohidedControlViews = [self.navBarContainer, self.toolBarContainer]
         coverImageView.frame = self.bounds
         self.addSubview(coverImageView)
-        self.timeSlider.setThumbImage(UIImage(named: "silder_point"), for: .normal)
+        self.timeSlider.setMaximumTrackImage(UIImage(named: "silder_point"), for: .normal)
+        self.timeSlider.setMinimumTrackImage(UIImage(named: "silder_point"), for: .normal)
         self.timeSlider.setThumbImage(UIImage(named: "silder_point"), for: .highlighted)
     }
     

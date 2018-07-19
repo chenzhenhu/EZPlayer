@@ -117,7 +117,7 @@
                             </constraints>
                         </progressView>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="m06-7H-FB9">
-                            <rect key="frame" x="136" y="6" width="461" height="31"/>
+                            <rect key="frame" x="136" y="4" width="461" height="31"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="sHQ-zf-nUW"/>
                             </constraints>
@@ -137,7 +137,7 @@
                         <constraint firstAttribute="bottom" secondItem="EW6-M4-tyu" secondAttribute="bottom" id="01y-ag-XTP"/>
                         <constraint firstItem="MXy-YT-Pgm" firstAttribute="leading" secondItem="eee-xV-7aj" secondAttribute="trailing" id="LwA-Pv-teD"/>
                         <constraint firstAttribute="trailing" secondItem="RtD-F5-LAt" secondAttribute="trailing" id="O26-Md-FUr"/>
-                        <constraint firstItem="m06-7H-FB9" firstAttribute="centerY" secondItem="vIO-KH-f4c" secondAttribute="centerY" constant="1" id="Q1F-9w-CNW"/>
+                        <constraint firstItem="m06-7H-FB9" firstAttribute="centerY" secondItem="vIO-KH-f4c" secondAttribute="centerY" constant="-1" id="Q1F-9w-CNW"/>
                         <constraint firstItem="eee-xV-7aj" firstAttribute="top" secondItem="XWv-QZ-yeH" secondAttribute="top" id="RQ8-ez-ipz"/>
                         <constraint firstItem="vIO-KH-f4c" firstAttribute="centerY" secondItem="XWv-QZ-yeH" secondAttribute="centerY" id="RhU-08-1Tc"/>
                         <constraint firstAttribute="bottom" secondItem="MXy-YT-Pgm" secondAttribute="bottom" id="Sfi-8e-Hip"/>

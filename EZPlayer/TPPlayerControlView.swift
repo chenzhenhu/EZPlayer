@@ -60,7 +60,7 @@ open class TPPlayerControlView: UIView {
         self.addSubview(coverImageView)
         self.timeSlider.setMaximumTrackImage(UIImage(named: "silder_point"), for: .normal)
         self.timeSlider.setMinimumTrackImage(UIImage(named: "silder_point"), for: .normal)
-        self.timeSlider.setThumbImage(UIImage(named: "silder_point"), for: .highlighted)
+        self.timeSlider.setThumbImage(UIImage(named: "silder_point"), for: .normal)
     }
     
     fileprivate var isProgressSliderSliding = false {

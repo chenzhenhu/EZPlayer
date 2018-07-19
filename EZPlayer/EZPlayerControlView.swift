@@ -227,6 +227,10 @@ open class EZPlayerControlView: UIView{
             }
             self.autohideControlView()
         }
+        
+        if (self.player?.offline)! {
+            fullEmbeddedScreenButton.isHidden = true
+        }
     }
 
     fileprivate func autohideControlView(){
@@ -266,9 +270,12 @@ extension EZPlayerControlView: EZPlayerCustom {
         }
         switch player.displayMode {
         case .embedded:
+            
+            shareButton.isHidden = true
             player.toFull()
         case .fullscreen:
             if player.lastDisplayMode == .embedded{
+                shareButton.isHidden = false
                 player.toEmbedded()
             }else  if player.lastDisplayMode == .float{
                 player.toFloat()

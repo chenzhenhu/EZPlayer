@@ -869,7 +869,8 @@ open class EZPlayer: NSObject {
             //playerView加问号，其实不关心playerView存不存在，存在就更新
             if self.playerView?.controlView == nil || self.playerView?.controlView != self.controlViewForEmbedded{
                 if self.controlViewForEmbedded == nil {
-                    self.controlViewForEmbedded = self.controlViewForFullscreen ?? Bundle(for: EZPlayerControlView.self).loadNibNamed(String(describing: EZPlayerControlView.self), owner: self, options: nil)?.last as? EZPlayerControlView
+                    //self.controlViewForEmbedded = self.controlViewForFullscreen ?? Bundle(for: EZPlayerControlView.self).loadNibNamed(String(describing: EZPlayerControlView.self), owner: self, options: nil)?.last as? EZPlayerControlView
+                    self.controlViewForEmbedded = self.controlViewForFullscreen ?? Bundle(for: TPPlayerControlView.self).loadNibNamed(String(describing: TPPlayerControlView.self), owner: self, options: nil)?.last as? TPPlayerControlView
                 }
             }
             self.playerView?.controlView = self.controlViewForEmbedded
@@ -877,7 +878,8 @@ open class EZPlayer: NSObject {
         case .fullscreen:
             if self.playerView?.controlView == nil || self.playerView?.controlView != self.controlViewForFullscreen{
                 if self.controlViewForFullscreen == nil {
-                    self.controlViewForFullscreen = self.controlViewForEmbedded ?? Bundle(for: EZPlayerControlView.self).loadNibNamed(String(describing: EZPlayerControlView.self), owner: self, options: nil)?.last as? EZPlayerControlView
+                    //self.controlViewForFullscreen = self.controlViewForEmbedded ?? Bundle(for: EZPlayerControlView.self).loadNibNamed(String(describing: EZPlayerControlView.self), owner: self, options: nil)?.last as? EZPlayerControlView
+                    self.controlViewForFullscreen = self.controlViewForEmbedded ?? Bundle(for: TPPlayerControlView.self).loadNibNamed(String(describing: TPPlayerControlView.self), owner: self, options: nil)?.last as? TPPlayerControlView
                 }
             }
             self.playerView?.controlView = self.controlViewForFullscreen
@@ -886,6 +888,7 @@ open class EZPlayer: NSObject {
             if self.playerView?.controlView == nil || self.playerView?.controlView != self.controlViewForFloat{
                 if self.controlViewForFloat == nil {
                     self.controlViewForFloat = Bundle(for: EZPlayerFloatView.self).loadNibNamed(String(describing: EZPlayerFloatView.self), owner: self, options: nil)?.last as? UIView
+
                 }
             }
             self.playerView?.controlView = self.controlViewForFloat
@@ -894,7 +897,8 @@ open class EZPlayer: NSObject {
         case .none:
             //初始化的时候
             if self.controlView == nil {
-                self.controlViewForEmbedded =  Bundle(for: EZPlayerControlView.self).loadNibNamed(String(describing: EZPlayerControlView.self), owner: self, options: nil)?.last as? EZPlayerControlView
+                //self.controlViewForEmbedded =  Bundle(for: EZPlayerControlView.self).loadNibNamed(String(describing: EZPlayerControlView.self), owner: self, options: nil)?.last as? EZPlayerControlViewself.controlViewForEmbedded =  Bundle(for: EZPlayerControlView.self).loadNibNamed(String(describing: EZPlayerControlView.self), owner: self, options: nil)?.last as? EZPlayerControlView
+                self.controlViewForEmbedded =  Bundle(for: TPPlayerControlView.self).loadNibNamed(String(describing: TPPlayerControlView.self), owner: self, options: nil)?.last as? TPPlayerControlView
             }
         }
         self.displayMode = nextDisplayMode

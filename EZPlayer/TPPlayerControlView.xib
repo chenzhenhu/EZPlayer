@@ -78,9 +78,9 @@
                             <rect key="frame" x="0.0" y="0.0" width="653" height="40"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eee-xV-7aj">
-                            <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="50" id="rD7-V0-ylp"/>
+                                <constraint firstAttribute="width" constant="40" id="rD7-V0-ylp"/>
                             </constraints>
                             <state key="normal" image="btn_play">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -90,9 +90,9 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00/00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXy-YT-Pgm">
-                            <rect key="frame" x="50" y="0.0" width="80" height="40"/>
+                            <rect key="frame" x="40" y="0.0" width="90" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="80" id="xxO-fp-rnU"/>
+                                <constraint firstAttribute="width" constant="90" id="xxO-fp-rnU"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -116,7 +116,7 @@
                                 <constraint firstAttribute="height" constant="2" id="wML-TS-ygx"/>
                             </constraints>
                         </progressView>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="m06-7H-FB9">
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="silder_point" maximumValueImage="silder_point" translatesAutoresizingMaskIntoConstraints="NO" id="m06-7H-FB9">
                             <rect key="frame" x="136" y="5" width="461" height="31"/>
                             <connections>
                                 <action selector="progressSliderTouchBegan:" destination="iN0-l3-epB" eventType="touchDown" id="HG3-TU-bbS"/>
@@ -220,5 +220,6 @@
         <image name="btn_share" width="16" height="16"/>
         <image name="shadow_1" width="519" height="50"/>
         <image name="shadow_2" width="519" height="50"/>
+        <image name="silder_point" width="11" height="11"/>
     </resources>
 </document>

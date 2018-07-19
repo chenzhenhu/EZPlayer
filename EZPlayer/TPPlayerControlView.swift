@@ -186,7 +186,7 @@ extension TPPlayerControlView : EZPlayerCustom {
         self.titleLabel.text = player.contentItem?.title ?? player.playerasset?.title
         if !self.isProgressSliderSliding {
             self.timeSlider.value = Float(currentTime)
-            self.titleLabel.text = duration.isNaN ? "Live" : EZPlayerUtils.formatTime(position: currentTime, duration: duration)
+            self.timeLabel.text = duration.isNaN ? "Live" : EZPlayerUtils.formatTime(position: currentTime, duration: duration)
         }
     }
     

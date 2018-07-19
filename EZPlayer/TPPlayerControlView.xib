@@ -144,7 +144,7 @@
                         <constraint firstItem="RtD-F5-LAt" firstAttribute="leading" secondItem="XWv-QZ-yeH" secondAttribute="leading" id="uFs-Dh-ToB"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zmf-np-ALa" customClass="EZPlayerLoading" customModule="EZPlayer" customModuleProvider="target">
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zmf-np-ALa" customClass="EZPlayerLoading" customModule="EZPlayer" customModuleProvider="target">
                     <rect key="frame" x="296.5" y="154.5" width="60" height="60"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>

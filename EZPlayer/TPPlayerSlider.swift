@@ -10,8 +10,8 @@ import UIKit
 
 class TPPlayerSlider: UISlider {
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func awakeFromNib() {
+        super.awakeFromNib()
         setThumbImage(UIImage(named: "silder_point"), for: .normal)
     }
     

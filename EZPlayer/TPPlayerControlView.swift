@@ -59,11 +59,6 @@ open class TPPlayerControlView: UIView {
         self.autohidedControlViews = [self.navBarContainer, self.toolBarContainer]
         coverImageView.frame = self.bounds
         self.addSubview(coverImageView)
-        
-        if (self.player?.offline)! {
-            shareButton.isHidden = true
-            fullEmbeddedScreenButton.isHidden = true
-        }
     }
     
     fileprivate var isProgressSliderSliding = false {
@@ -198,6 +193,10 @@ extension TPPlayerControlView : EZPlayerCustom {
             break
         default:
             self.playPauseButton.setImage(UIImage(named: "btn_play", in: Bundle(for: TPPlayerControlView.self), compatibleWith: nil), for: .normal)
+        }
+        if player.offline {
+            fullEmbeddedScreenButton.isHidden = true
+            shareButton.isHidden = true
         }
     }
     

@@ -102,6 +102,8 @@ open class EZPlayer: NSObject {
         }
     }
     
+    /// 离线播放
+    open var offline = false
     
     /// 设置url会自动播放
     open var autoPlay = true

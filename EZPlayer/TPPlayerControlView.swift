@@ -272,9 +272,11 @@ extension TPPlayerControlView : EZPlayerCustom {
         }
         switch player.displayMode {
         case .embedded:
+            shareButton.isHidden = true
             player.toFull()
         case .fullscreen:
             if player.lastDisplayMode == .embedded {
+                shareButton.isHidden = false
                 player.toEmbedded()
             } else if player.lastDisplayMode == .float {
                 player.toFull()

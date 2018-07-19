@@ -116,8 +116,11 @@
                                 <constraint firstAttribute="height" constant="2" id="wML-TS-ygx"/>
                             </constraints>
                         </progressView>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="silder_point" maximumValueImage="silder_point" translatesAutoresizingMaskIntoConstraints="NO" id="m06-7H-FB9">
-                            <rect key="frame" x="136" y="5" width="461" height="31"/>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="m06-7H-FB9">
+                            <rect key="frame" x="136" y="19" width="461" height="3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="RPU-Jw-cfH"/>
+                            </constraints>
                             <connections>
                                 <action selector="progressSliderTouchBegan:" destination="iN0-l3-epB" eventType="touchDown" id="HG3-TU-bbS"/>
                                 <action selector="progressSliderTouchEnd:" destination="iN0-l3-epB" eventType="touchUpInside" id="QDb-M9-ZVk"/>
@@ -220,6 +223,5 @@
         <image name="btn_share" width="16" height="16"/>
         <image name="shadow_1" width="519" height="50"/>
         <image name="shadow_2" width="519" height="50"/>
-        <image name="silder_point" width="11" height="11"/>
     </resources>
 </document>

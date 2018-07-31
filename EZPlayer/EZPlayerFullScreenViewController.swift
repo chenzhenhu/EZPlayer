@@ -83,14 +83,14 @@ open class EZPlayerFullScreenViewController: UIViewController {
     private var statusBarHiddenAnimated = true
 
     override open var prefersStatusBarHidden: Bool{
-        if self.statusBarHiddenAnimated {
-            UIView.animate(withDuration: EZPlayerAnimatedDuration, animations: {
-                self.statusbarBackgroundView.alpha = self.player.controlsHidden ? 0 : 1
-            }, completion: {finished in
-            })
-        }else{
-            self.statusbarBackgroundView.alpha = self.player.controlsHidden ? 0 : 1
-        }
+//        if self.statusBarHiddenAnimated {
+//            UIView.animate(withDuration: EZPlayerAnimatedDuration, animations: {
+//                self.statusbarBackgroundView.alpha = self.player.controlsHidden ? 0 : 1
+//            }, completion: {finished in
+//            })
+//        }else{
+//            self.statusbarBackgroundView.alpha = self.player.controlsHidden ? 0 : 1
+//        }
 
         return self.player.controlsHidden
     }

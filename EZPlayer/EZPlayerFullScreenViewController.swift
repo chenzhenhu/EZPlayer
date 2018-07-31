@@ -31,6 +31,7 @@ open class EZPlayerFullScreenViewController: UIViewController {
         self.statusbarBackgroundView.backgroundColor = self.player.fullScreenStatusbarBackgroundColor
         self.statusbarBackgroundView.autoresizingMask = [ .flexibleWidth,.flexibleLeftMargin,.flexibleRightMargin,.flexibleBottomMargin]
         self.view.addSubview(self.statusbarBackgroundView)
+        UIApplication.shared.setStatusBarHidden(self.player.controlsHidden, with: .none)
     }
 
     open override func viewWillAppear(_ animated: Bool) {

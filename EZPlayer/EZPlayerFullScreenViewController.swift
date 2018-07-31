@@ -18,6 +18,7 @@ open class EZPlayerFullScreenViewController: UIViewController {
     // MARK: - Life cycle
     deinit {
         NotificationCenter.default.removeObserver(self)
+        UIApplication.shared.setStatusBarHidden(false, with: .none)
     }
 
     override open func viewDidLoad() {
@@ -92,8 +93,8 @@ open class EZPlayerFullScreenViewController: UIViewController {
 //            self.statusbarBackgroundView.alpha = self.player.controlsHidden ? 0 : 1
 //        }
 
-//        return self.player.controlsHidden
-        return false
+        return self.player.controlsHidden
+        
     }
 
     override open var preferredStatusBarStyle: UIStatusBarStyle{
@@ -111,6 +112,9 @@ open class EZPlayerFullScreenViewController: UIViewController {
         if #available(iOS 11.0, *) {
             self.setNeedsUpdateOfHomeIndicatorAutoHidden()
         }
+        
+        UIApplication.shared.setStatusBarHidden(self.player.controlsHidden, with: .none)
+        
     }
 
     override open func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

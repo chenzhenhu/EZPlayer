@@ -92,7 +92,8 @@ open class EZPlayerFullScreenViewController: UIViewController {
 //            self.statusbarBackgroundView.alpha = self.player.controlsHidden ? 0 : 1
 //        }
 
-        return self.player.controlsHidden
+//        return self.player.controlsHidden
+        return false
     }
 
     override open var preferredStatusBarStyle: UIStatusBarStyle{

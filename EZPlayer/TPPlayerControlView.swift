@@ -139,7 +139,7 @@ open class TPPlayerControlView: UIView {
             }
             UIView.animate(withDuration: EZPlayerAnimatedDuration, delay: 0, options: .curveEaseInOut, animations: {
                 if self.player?.displayMode == .fullscreen {
-                    self.navBarContainerTopConstraint.constant = EZPlayerUtils.isPhoneX && self.player?.fullScreenMode == .landscape ? 0 : EZPlayerUtils.statusBarHeight
+//                    self.navBarContainerTopConstraint.constant = EZPlayerUtils.isPhoneX && self.player?.fullScreenMode == .landscape ? 0 : EZPlayerUtils.statusBarHeight
                     self.toolBarContainerBottomConstraint.constant = EZPlayerUtils.isPhoneX ? self.player?.fullScreenMode == .portrait ? 34 : 21 : 0
                 } else {
                     

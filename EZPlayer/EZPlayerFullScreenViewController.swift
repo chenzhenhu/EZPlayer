@@ -99,6 +99,10 @@ open class EZPlayerFullScreenViewController: UIViewController {
     override open var preferredStatusBarStyle: UIStatusBarStyle{
         return self.player.fullScreenPreferredStatusBarStyle
     }
+    
+    open override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .none
+    }
 
     // MARK: - notification
     @objc func playerControlsHiddenDidChange(_ notifiaction: Notification) {

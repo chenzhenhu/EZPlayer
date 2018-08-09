@@ -167,9 +167,9 @@ open class TPPlayerControlView: UIView {
             self.autohideControlView()
         }
         if self.player?.displayMode == EZPlayerDisplayMode.fullscreen {
-            titleLabel.isHidden = false
+            titleLabel.text = self.player?.contentItem?.title
         } else {
-            titleLabel.isHidden = true
+            titleLabel.text = ""
         }
     }
     

@@ -166,11 +166,7 @@ open class TPPlayerControlView: UIView {
             }
             self.autohideControlView()
         }
-        if self.player?.displayMode == EZPlayerDisplayMode.fullscreen {
-            titleLabel.text = self.player?.contentItem?.title
-        } else {
-            titleLabel.text = ""
-        }
+        
     }
     
     fileprivate func autohideControlView() {
@@ -225,6 +221,11 @@ extension TPPlayerControlView : EZPlayerCustom {
             self.hideControlView(animated)
         } else {
             self.showControlView(animated)
+        }
+        if self.player?.displayMode == .fullscreen {
+            titleLabel.text = self.player?.contentItem?.title
+        } else {
+            titleLabel.text = ""
         }
     }
     

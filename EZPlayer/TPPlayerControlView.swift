@@ -166,6 +166,11 @@ open class TPPlayerControlView: UIView {
             }
             self.autohideControlView()
         }
+        if self.player?.displayMode == EZPlayerDisplayMode.fullscreen {
+            titleLabel.isHidden = false
+        } else {
+            titleLabel.isHidden = true
+        }
     }
     
     fileprivate func autohideControlView() {

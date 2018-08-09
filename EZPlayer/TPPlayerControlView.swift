@@ -223,9 +223,9 @@ extension TPPlayerControlView : EZPlayerCustom {
             self.showControlView(animated)
         }
         if self.player?.displayMode == .fullscreen {
-            titleLabel.text = self.player?.contentItem?.title
+            titleLabel.isHidden = false
         } else {
-            titleLabel.text = ""
+            titleLabel.isHidden = true
         }
     }
     

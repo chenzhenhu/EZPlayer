@@ -901,7 +901,8 @@ open class EZPlayer: NSObject {
             //初始化的时候
             if self.controlView == nil {
                 //self.controlViewForEmbedded =  Bundle(for: EZPlayerControlView.self).loadNibNamed(String(describing: EZPlayerControlView.self), owner: self, options: nil)?.last as? EZPlayerControlViewself.controlViewForEmbedded =  Bundle(for: EZPlayerControlView.self).loadNibNamed(String(describing: EZPlayerControlView.self), owner: self, options: nil)?.last as? EZPlayerControlView
-                self.controlViewForEmbedded =  Bundle(for: TPPlayerControlView.self).loadNibNamed(String(describing: TPPlayerControlView.self), owner: self, options: nil)?.last as? TPPlayerControlView
+                //self.controlViewForEmbedded =  Bundle(for: TPPlayerControlView.self).loadNibNamed(String(describing: TPPlayerControlView.self), owner: self, options: nil)?.last as? TPPlayerControlView
+                self.controlViewForEmbedded = HHHPlayerEmbeddedControlView()
             }
         }
         self.displayMode = nextDisplayMode

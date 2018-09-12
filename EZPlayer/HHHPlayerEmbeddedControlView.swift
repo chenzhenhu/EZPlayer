@@ -25,7 +25,7 @@ open class HHHPlayerEmbeddedControlView: UIView {
     }()
     
     private lazy var topBarMaskView: UIImageView = {
-        return UIImageView(image: UIImage.bundleImage(named: "player_mask_top"))
+        return UIImageView(image: UIImage(named: "player_mask_top", in: Bundle(for: HHHPlayerEmbeddedControlView.self), compatibleWith: nil))
     }()
     
     private lazy var titleLabel: UILabel = {
@@ -41,7 +41,7 @@ open class HHHPlayerEmbeddedControlView: UIView {
     }()
     
     private lazy var bottomBarMaskView: UIImageView = {
-        return UIImageView(image: UIImage.bundleImage(named: "player_mask_bottom"))
+        return UIImageView(image: UIImage(named: "player_mask_bottom", in: Bundle(for: HHHPlayerEmbeddedControlView.self), compatibleWith: nil))
     }()
     
     private lazy var playTimeLabel: UILabel = {
@@ -68,7 +68,7 @@ open class HHHPlayerEmbeddedControlView: UIView {
         progressSlider.minimumValue = 0
         progressSlider.isContinuous = false
         progressSlider.minimumTrackTintColor = UIColor.clear
-        progressSlider.setThumbImage(UIImage.bundleImage(named: "fullplayer_progress_point"), for: .normal)
+        progressSlider.setThumbImage(UIImage(named: "fullplayer_progress_point", in: Bundle(for: HHHPlayerEmbeddedControlView.self), compatibleWith: nil), for: .normal)
         return progressSlider
     }()
     
@@ -82,7 +82,7 @@ open class HHHPlayerEmbeddedControlView: UIView {
     private lazy var enterFullScreenButton: UIButton = {
         let fullScreenButton = UIButton()
         fullScreenButton.tintColor = UIColor.white
-        fullScreenButton.setImage(UIImage.bundleImage(named: "player_icon_fullscreen"), for: .normal)
+        fullScreenButton.setImage(UIImage(named: "player_icon_fullscreen", in: Bundle(for: HHHPlayerEmbeddedControlView.self), compatibleWith: nil), for: .normal)
         return fullScreenButton
     }()
     
@@ -94,7 +94,7 @@ open class HHHPlayerEmbeddedControlView: UIView {
         let centerPlayOrPauseButton = UIButton()
         centerPlayOrPauseButton.tintColor = UIColor.white
         centerPlayOrPauseButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        centerPlayOrPauseButton.setImage(UIImage.bundleImage(named: "player_icon_play"), for: .normal)
+        centerPlayOrPauseButton.setImage(UIImage(named: "player_icon_play", in: Bundle(for: HHHPlayerEmbeddedControlView.self), compatibleWith: nil), for: .normal)
         centerPlayOrPauseButton.clipsToBounds = true
         centerPlayOrPauseButton.layer.cornerRadius = 25
         return centerPlayOrPauseButton

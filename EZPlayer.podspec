@@ -104,8 +104,8 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  # s.resource  = "EZPlayer/EZPlayer.xcassets"
-  s.resources = "EZPlayer/EZPlayer.bundle"
+  s.resource  = "EZPlayer/EZPlayer.xcassets"
+  # s.resources = "EZPlayer/EZPlayer.bundle"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 

@@ -11,6 +11,7 @@ import UIKit
 extension UIImage {
 
     class func bundleImage(named: String) -> UIImage? {
+        
         return UIImage(named: named, in: Bundle(path: "EZPlayer.bundle"), compatibleWith: nil)
     }
 }

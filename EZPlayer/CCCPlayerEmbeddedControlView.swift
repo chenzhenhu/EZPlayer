@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class CCCPlayerEmbeddedControlView: UIView {
     
@@ -126,60 +127,60 @@ extension CCCPlayerEmbeddedControlView {
         self.bottomBarView.addSubview(self.enterFullScreenButton)
         self.addSubview(self.coverImageView)
         self.addSubview(centerPlayOrPauseButton)
-        
+
         self.topBarView.snp.makeConstraints { (make) in
             make.left.right.top.equalTo(self)
             make.height.equalTo(44)
         }
-        
+
         self.topBarMaskView.snp.makeConstraints { (make) in
             make.edges.equalTo(self.topBarView)
         }
-        
+
         self.titleLabel.snp.makeConstraints { (make) in
             make.edges.equalTo(self.topBarView)
         }
-        
+
         self.bottomBarView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalTo(self)
             make.height.equalTo(50)
         }
-        
+
         self.bottomBarMaskView.snp.makeConstraints { (make) in
             make.edges.equalTo(self.bottomBarView)
         }
-        
+
         self.playTimeLabel.snp.makeConstraints { (make) in
             make.top.bottom.left.equalTo(self.bottomBarView)
             make.width.equalTo(50)
         }
-        
+
         self.enterFullScreenButton.snp.makeConstraints { (make) in
             make.top.bottom.right.equalTo(self.bottomBarView)
             make.width.equalTo(40)
         }
-        
+
         self.totalTimeLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalTo(self.bottomBarView)
             make.right.equalTo(self.enterFullScreenButton.snp.left)
             make.width.equalTo(50)
         }
-        
+
         self.progressSlider.snp.makeConstraints { (make) in
             make.centerY.equalTo(self.bottomBarView)
             make.left.equalTo(self.playTimeLabel.snp.right).offset(2)
             make.right.equalTo(self.totalTimeLabel.snp.left).offset(-2)
         }
-        
+
         self.progressView.snp.makeConstraints { (make) in
             make.left.right.equalTo(self.progressSlider)
             make.centerY.equalTo(self.progressSlider).offset(0.5)
         }
-        
+
         self.coverImageView.snp.makeConstraints { (make) in
             make.edges.equalTo(self)
         }
-        
+
         self.centerPlayOrPauseButton.snp.makeConstraints { (make) in
             make.center.equalTo(self)
             make.size.equalTo(50)

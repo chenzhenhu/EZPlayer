@@ -105,10 +105,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "EZPlayer/EZPlayer.xcassets"
-  # s.resources = "Resources/*.png"
-  s.resource_bundles = {
-    'EZPlayer' =>  ['EZPlayer/EZPlayer.xcassets/*.png']
-  }
+  s.resources = "EZPlayer/EZPlayer.bundle"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 

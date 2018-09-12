@@ -872,7 +872,8 @@ open class EZPlayer: NSObject {
             if self.playerView?.controlView == nil || self.playerView?.controlView != self.controlViewForEmbedded{
                 if self.controlViewForEmbedded == nil {
                     //self.controlViewForEmbedded = self.controlViewForFullscreen ?? Bundle(for: EZPlayerControlView.self).loadNibNamed(String(describing: EZPlayerControlView.self), owner: self, options: nil)?.last as? EZPlayerControlView
-                    self.controlViewForEmbedded = self.controlViewForFullscreen ?? Bundle(for: TPPlayerControlView.self).loadNibNamed(String(describing: TPPlayerControlView.self), owner: self, options: nil)?.last as? TPPlayerControlView
+                    //self.controlViewForEmbedded = self.controlViewForFullscreen ?? Bundle(for: TPPlayerControlView.self).loadNibNamed(String(describing: TPPlayerControlView.self), owner: self, options: nil)?.last as? TPPlayerControlView
+                    self.controlViewForEmbedded = HHHPlayerEmbeddedControlView()
                 }
             }
             self.playerView?.controlView = self.controlViewForEmbedded

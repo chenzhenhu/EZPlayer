@@ -32,7 +32,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		527D3C032148F0DF00FD9AFB /* CCCPlayerEmbeddedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527D3C022148F0DF00FD9AFB /* CCCPlayerEmbeddedControlView.swift */; };
+		527D3C032148F0DF00FD9AFB /* HHHPlayerEmbeddedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527D3C022148F0DF00FD9AFB /* HHHPlayerEmbeddedControlView.swift */; };
 		528EB56220FF406D003F060C /* TPPlayerControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528EB56120FF406D003F060C /* TPPlayerControlView.xib */; };
 		528EB56420FF40BC003F060C /* TPPlayerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EB56320FF40BC003F060C /* TPPlayerControlView.swift */; };
 		528EB56621006605003F060C /* TPPlayerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EB56521006605003F060C /* TPPlayerSlider.swift */; };
@@ -69,7 +69,7 @@
 
 /* Begin PBXFileReference section */
 		509D0D2501A9CD244937A8C9 /* Pods_EZPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EZPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		527D3C022148F0DF00FD9AFB /* CCCPlayerEmbeddedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCCPlayerEmbeddedControlView.swift; sourceTree = "<group>"; };
+		527D3C022148F0DF00FD9AFB /* HHHPlayerEmbeddedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HHHPlayerEmbeddedControlView.swift; sourceTree = "<group>"; };
 		528EB56120FF406D003F060C /* TPPlayerControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPPlayerControlView.xib; sourceTree = "<group>"; };
 		528EB56320FF40BC003F060C /* TPPlayerControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPPlayerControlView.swift; sourceTree = "<group>"; };
 		528EB56521006605003F060C /* TPPlayerSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPPlayerSlider.swift; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 				99EB8CB11E0FFF0300176BF2 /* EZPlayerFloatView.xib */,
 				528EB56120FF406D003F060C /* TPPlayerControlView.xib */,
 				528EB56320FF40BC003F060C /* TPPlayerControlView.swift */,
-				527D3C022148F0DF00FD9AFB /* CCCPlayerEmbeddedControlView.swift */,
+				527D3C022148F0DF00FD9AFB /* HHHPlayerEmbeddedControlView.swift */,
 			);
 			name = Skin;
 			sourceTree = "<group>";
@@ -396,7 +396,7 @@
 				99818A6E1DE9C760000DAC1C /* EZPlayerFullScreenViewController.swift in Sources */,
 				995E79241DD99E92006CE7E9 /* EZPlayer.swift in Sources */,
 				528EB56420FF40BC003F060C /* TPPlayerControlView.swift in Sources */,
-				527D3C032148F0DF00FD9AFB /* CCCPlayerEmbeddedControlView.swift in Sources */,
+				527D3C032148F0DF00FD9AFB /* HHHPlayerEmbeddedControlView.swift in Sources */,
 				9919C1441E6D545A00249407 /* EZPlayerAVAssetResourceLoaderDelegate.swift in Sources */,
 				991492341DDC166A005FF2BD /* AVAsset+EZPlayer.swift in Sources */,
 				995E79521DD9D166006CE7E9 /* EZPlayerUtils.swift in Sources */,

@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class CCCPlayerEmbeddedControlView: UIView {
+open class HHHPlayerEmbeddedControlView: UIView {
     
     public weak var player: EZPlayer? {
         didSet {

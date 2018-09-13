@@ -7,8 +7,22 @@
 //
 
 import UIKit
+import AVFoundation
+import MediaPlayer
 
 class HHFullScreenControlView: UIView {
+    
+    public weak var player: EZPlayer? {
+        didSet {
+            player?.setControlsHidden(false, animated: true)
+            
+        }
+    }
+    
+    var hideControlViewTask: Task?
+    var loadingView: EZPlayerLoading = EZPlayerLoading()
+    public var autohidedControlViews = [UIView]()
+    fileprivate var isSliding: Bool = false
 
     @IBOutlet weak var topBarView: UIView!
     @IBOutlet weak var topBarMaskView: UIImageView!
@@ -27,6 +41,18 @@ class HHFullScreenControlView: UIView {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
     
+    @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var previewImageView: UIImageView!
     @IBOutlet weak var seekToLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
+}
+
+extension HHFullScreenControlView {
+    
+    
+    
 }

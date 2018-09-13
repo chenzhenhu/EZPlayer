@@ -13,11 +13,12 @@ import MediaPlayer
 /// 动画时间
 public var HHAnimatedDuration = 0.3
 
-class HHEmbeddedControlView: UIView {
+open class HHEmbeddedControlView: UIView {
     
-    public weak var player: EZPlayer? {
+    weak public var player: EZPlayer? {
         didSet {
             player?.setControlsHidden(false, animated: true)
+            self.autoHideControlView()
         }
     }
     
@@ -42,10 +43,10 @@ class HHEmbeddedControlView: UIView {
     @IBOutlet weak var centerPlayOrPauseButton: UIButton!
     @IBOutlet weak var seekToLabel: UILabel!
     
-    override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         self.topBarView.isHidden = true
-        
+        self.coverImageView.isHidden = true
         self.seekToLabel.isHidden = true
         self.progressSlider.value = 0
         self.progressSlider.setThumbImage(UIImage(named: "fullplayer_progress_point", in: Bundle(for: HHEmbeddedControlView.self), compatibleWith: nil), for: .normal)
@@ -55,12 +56,13 @@ class HHEmbeddedControlView: UIView {
         self.autohidedControlViews = [self.centerPlayOrPauseButton, self.bottomBarView]
     }
     
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         guard let player = self.player else { return }
         if player.contentItem?.coverUrl?.isEmpty ?? true {
             self.coverImageView.isHidden = true
         } else {
+            self.coverImageView.isHidden = false
             let data = try? Data(contentsOf: URL(string: (player.contentItem?.coverUrl)!)!)
             self.coverImageView.image = UIImage(data: data!)
         }
@@ -156,7 +158,7 @@ extension HHEmbeddedControlView {
 extension HHEmbeddedControlView: EZPlayerCustom {
     
     
-    func player(_ player: EZPlayer, playerStateDidChange state: EZPlayerState) {
+    public func player(_ player: EZPlayer, playerStateDidChange state: EZPlayerState) {
         
         switch state {
         case .playing, .buffering:
@@ -169,11 +171,11 @@ extension HHEmbeddedControlView: EZPlayerCustom {
         }
     }
     
-    func player(_ player: EZPlayer, playerDisplayModeDidChange displayMode: EZPlayerDisplayMode) {
+    public func player(_ player: EZPlayer, playerDisplayModeDidChange displayMode: EZPlayerDisplayMode) {
         // ignore
     }
     
-    func player(_ player: EZPlayer, playerControlsHiddenDidChange controlsHidden: Bool, animated: Bool) {
+    public func player(_ player: EZPlayer, playerControlsHiddenDidChange controlsHidden: Bool, animated: Bool) {
         if controlsHidden {
             self.hideControlView(animated)
         } else {
@@ -181,7 +183,7 @@ extension HHEmbeddedControlView: EZPlayerCustom {
         }
     }
     
-    func player(_ player: EZPlayer, bufferDurationDidChange bufferDuration: TimeInterval, totalDuration: TimeInterval) {
+    public func player(_ player: EZPlayer, bufferDurationDidChange bufferDuration: TimeInterval, totalDuration: TimeInterval) {
         if totalDuration.isNaN || bufferDuration.isNaN || totalDuration == 0 || bufferDuration == 0 {
             self.progressView.progress = 0
         } else {
@@ -189,7 +191,7 @@ extension HHEmbeddedControlView: EZPlayerCustom {
         }
     }
     
-    func player(_ player: EZPlayer, currentTime: TimeInterval, duration: TimeInterval) {
+    public func player(_ player: EZPlayer, currentTime: TimeInterval, duration: TimeInterval) {
         if currentTime.isNaN || (currentTime == 0 && duration.isNaN) {
             return
         }
@@ -199,14 +201,14 @@ extension HHEmbeddedControlView: EZPlayerCustom {
         self.progressSlider.value = Float(currentTime)
         self.playTimeLabel.text = EZPlayerUtils.formatTime(position: currentTime, duration: 0)
         self.totalTimeLabel.text = EZPlayerUtils.formatTime(position: duration, duration: 0)
-        
+        self.titleLabel.text = player.contentItem?.title ?? ""
     }
     
-    func playerHeartbeat(_ player: EZPlayer) {
+    public func playerHeartbeat(_ player: EZPlayer) {
         // ignore
     }
     
-    func player(_ player: EZPlayer, showLoading: Bool) {
+    public func player(_ player: EZPlayer, showLoading: Bool) {
         if showLoading {
             self.loadingView.start()
         } else {
@@ -223,15 +225,16 @@ extension HHEmbeddedControlView: EZPlayerCustom {
         }
     }
     
-    func fullEmbeddedScreenButtonPressed(_ sender: Any) {
+    public func fullEmbeddedScreenButtonPressed(_ sender: Any) {
+        guard let player = self.player else { return }
+        player.toFull()
+    }
+    
+    public func audioSubtitleCCButtonPressed(_ sender: Any) {
         //ignore
     }
     
-    func audioSubtitleCCButtonPressed(_ sender: Any) {
-        //ignore
-    }
-    
-    func backButtonPressed(_ sender: Any) {
+    public func backButtonPressed(_ sender: Any) {
         //ignore
     }
     
@@ -243,7 +246,7 @@ extension HHEmbeddedControlView: EZPlayerCustom {
         self.isSliding = true
     }
     
-    func player(_ player: EZPlayer, progressChanging value: TimeInterval) {
+    public func player(_ player: EZPlayer, progressChanging value: TimeInterval) {
         if player.isLive ?? true{
             return
         }
@@ -253,7 +256,7 @@ extension HHEmbeddedControlView: EZPlayerCustom {
         }
     }
     
-    func player(_ player: EZPlayer, progressDidChange value: TimeInterval) {
+    public func player(_ player: EZPlayer, progressDidChange value: TimeInterval) {
         if player.isLive ?? true{
             return
         }
@@ -263,11 +266,11 @@ extension HHEmbeddedControlView: EZPlayerCustom {
         }
     }
     
-    func player(_ player: EZPlayer, singleTapGestureTapped singleTap: UITapGestureRecognizer) {
+    public func player(_ player: EZPlayer, singleTapGestureTapped singleTap: UITapGestureRecognizer) {
         player.setControlsHidden(!player.controlsHidden, animated: true)
     }
     
-    func player(_ player: EZPlayer, doubleTapGestureTapped doubleTap: UITapGestureRecognizer) {
+    public func player(_ player: EZPlayer, doubleTapGestureTapped doubleTap: UITapGestureRecognizer) {
         self.playPauseButtonPressed(doubleTap)
     }
     

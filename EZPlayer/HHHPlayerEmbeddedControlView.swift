@@ -8,6 +8,8 @@
 
 import UIKit
 import SnapKit
+import AVFoundation
+import MediaPlayer
 
 open class HHHPlayerEmbeddedControlView: UIView {
     
@@ -17,11 +19,17 @@ open class HHHPlayerEmbeddedControlView: UIView {
                 return
             }
             player.setControlsHidden(true, animated: true)
+            self.autohideControlView()
         }
     }
     
+    var hideControlViewTask: Task?
+    public var autohidedControlViews = [UIView]()
+    
     private lazy var topBarView: UIView = {
-        return UIView()
+        let topBarView = UIView()
+        topBarView.isHidden = true
+        return topBarView
     }()
     
     private lazy var topBarMaskView: UIImageView = {
@@ -102,11 +110,27 @@ open class HHHPlayerEmbeddedControlView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.autohidedControlViews.append(self.topBarView)
+        self.autohidedControlViews.append(self.bottomBarView)
+        self.autohidedControlViews.append(self.centerPlayOrPauseButton)
         setupUI()
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    fileprivate func autohideControlView() {
+        guard let player = self.player, player.autohiddenTimeInterval > 0 else {
+            return
+        }
+        cancel(self.hideControlViewTask)
+        self.hideControlViewTask = delay(5, task: { [weak self] in
+            guard let weakSelf = self else {
+                return
+            }
+            weakSelf.player?.setControlsHidden(true, animated: true)
+        })
     }
     
 }

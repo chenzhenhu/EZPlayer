@@ -26,6 +26,8 @@ class HHEmbeddedControlView: UIView {
     @IBOutlet weak var centerPlayOrPauseButton: UIButton!
     @IBOutlet weak var seekToLabel: UILabel!
     
-    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
     
 }

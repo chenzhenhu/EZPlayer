@@ -73,6 +73,11 @@ open class HHEmbeddedControlView: UIView {
     }
     
     
+    deinit {
+        self.player?.stop()
+        self.player = nil
+    }
+    
 }
 
 extension HHEmbeddedControlView {
@@ -171,7 +176,7 @@ extension HHEmbeddedControlView: EZPlayerCustom {
         case .seekingForward, .seekingBackward:
             break
         default:
-            self.centerPlayOrPauseButton.setImage(UIImage(named: "player_icon_player", in: Bundle(for: HHEmbeddedControlView.self), compatibleWith: nil), for: .normal)
+            self.centerPlayOrPauseButton.setImage(UIImage(named: "player_icon_play", in: Bundle(for: HHEmbeddedControlView.self), compatibleWith: nil), for: .normal)
         }
     }
     

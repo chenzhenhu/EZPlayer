@@ -51,6 +51,10 @@ open class HHEmbeddedControlView: UIView {
         self.progressSlider.value = 0
         self.progressSlider.setThumbImage(UIImage(named: "fullplayer_progress_point", in: Bundle(for: HHEmbeddedControlView.self), compatibleWith: nil), for: .normal)
         self.progressView.progress = 0
+        
+        self.centerPlayOrPauseButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        self.centerPlayOrPauseButton.clipsToBounds = true
+        self.centerPlayOrPauseButton.layer.cornerRadius = 25
 
 //        self.autohidedControlViews = [self.topBarView, self.bottomBarView]
         self.autohidedControlViews = [self.centerPlayOrPauseButton, self.bottomBarView]
@@ -225,7 +229,7 @@ extension HHEmbeddedControlView: EZPlayerCustom {
         }
     }
     
-    public func fullEmbeddedScreenButtonPressed(_ sender: Any) {
+    @IBAction public func fullEmbeddedScreenButtonPressed(_ sender: Any) {
         guard let player = self.player else { return }
         player.toFull()
     }

@@ -35,6 +35,10 @@
 		528EB56220FF406D003F060C /* TPPlayerControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528EB56120FF406D003F060C /* TPPlayerControlView.xib */; };
 		528EB56420FF40BC003F060C /* TPPlayerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EB56320FF40BC003F060C /* TPPlayerControlView.swift */; };
 		528EB56621006605003F060C /* TPPlayerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EB56521006605003F060C /* TPPlayerSlider.swift */; };
+		52E76C89214A170F007951AB /* HHEmbeddedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E76C88214A170F007951AB /* HHEmbeddedControlView.swift */; };
+		52E76C8B214A1723007951AB /* HHEmbeddedControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E76C8A214A1723007951AB /* HHEmbeddedControlView.xib */; };
+		52E76C8D214A2C25007951AB /* HHFullScreenControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E76C8C214A2C25007951AB /* HHFullScreenControlView.swift */; };
+		52E76C8F214A2C8F007951AB /* HHFullScreenControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E76C8E214A2C8F007951AB /* HHFullScreenControlView.xib */; };
 		991492311DDC0274005FF2BD /* EZPlayer.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 991492301DDC0274005FF2BD /* EZPlayer.xcassets */; };
 		991492341DDC166A005FF2BD /* AVAsset+EZPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991492331DDC166A005FF2BD /* AVAsset+EZPlayer.swift */; };
 		9919C1441E6D545A00249407 /* EZPlayerAVAssetResourceLoaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9919C1431E6D545A00249407 /* EZPlayerAVAssetResourceLoaderDelegate.swift */; };
@@ -69,6 +73,10 @@
 		528EB56120FF406D003F060C /* TPPlayerControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPPlayerControlView.xib; sourceTree = "<group>"; };
 		528EB56320FF40BC003F060C /* TPPlayerControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPPlayerControlView.swift; sourceTree = "<group>"; };
 		528EB56521006605003F060C /* TPPlayerSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPPlayerSlider.swift; sourceTree = "<group>"; };
+		52E76C88214A170F007951AB /* HHEmbeddedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HHEmbeddedControlView.swift; sourceTree = "<group>"; };
+		52E76C8A214A1723007951AB /* HHEmbeddedControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HHEmbeddedControlView.xib; sourceTree = "<group>"; };
+		52E76C8C214A2C25007951AB /* HHFullScreenControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HHFullScreenControlView.swift; sourceTree = "<group>"; };
+		52E76C8E214A2C8F007951AB /* HHFullScreenControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HHFullScreenControlView.xib; sourceTree = "<group>"; };
 		991492301DDC0274005FF2BD /* EZPlayer.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = EZPlayer.xcassets; sourceTree = "<group>"; };
 		991492331DDC166A005FF2BD /* AVAsset+EZPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAsset+EZPlayer.swift"; sourceTree = "<group>"; };
 		9919C1431E6D545A00249407 /* EZPlayerAVAssetResourceLoaderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZPlayerAVAssetResourceLoaderDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +211,10 @@
 				99EB8CB11E0FFF0300176BF2 /* EZPlayerFloatView.xib */,
 				528EB56120FF406D003F060C /* TPPlayerControlView.xib */,
 				528EB56320FF40BC003F060C /* TPPlayerControlView.swift */,
+				52E76C88214A170F007951AB /* HHEmbeddedControlView.swift */,
+				52E76C8A214A1723007951AB /* HHEmbeddedControlView.xib */,
+				52E76C8C214A2C25007951AB /* HHFullScreenControlView.swift */,
+				52E76C8E214A2C8F007951AB /* HHFullScreenControlView.xib */,
 			);
 			name = Skin;
 			sourceTree = "<group>";
@@ -290,8 +302,10 @@
 				995E792A1DD9A322006CE7E9 /* EZPlayerControlView.xib in Resources */,
 				991BE8531E0035190032C14B /* EZPlayerFloatContainerRootViewController.xib in Resources */,
 				99CF4D6A1E06B43200798ACE /* EZPlayerAudibleLegibleViewController.xib in Resources */,
+				52E76C8F214A2C8F007951AB /* HHFullScreenControlView.xib in Resources */,
 				528EB56220FF406D003F060C /* TPPlayerControlView.xib in Resources */,
 				991492311DDC0274005FF2BD /* EZPlayer.xcassets in Resources */,
+				52E76C8B214A1723007951AB /* HHEmbeddedControlView.xib in Resources */,
 				99EB8CB21E0FFF0300176BF2 /* EZPlayerFloatView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +350,8 @@
 				995D47AC1DFFB0B400BEB41B /* EZPlayerFloatContainerRootViewController.swift in Sources */,
 				99818A681DE948D1000DAC1C /* EZPlayerNotification.swift in Sources */,
 				528EB56621006605003F060C /* TPPlayerSlider.swift in Sources */,
+				52E76C89214A170F007951AB /* HHEmbeddedControlView.swift in Sources */,
+				52E76C8D214A2C25007951AB /* HHFullScreenControlView.swift in Sources */,
 				99C221DC1DDCB4EB00167DBE /* EZPlayerContentItem.swift in Sources */,
 				99CF4D691E06B43200798ACE /* EZPlayerAudibleLegibleViewController.swift in Sources */,
 				995E79261DD9A04A006CE7E9 /* EZPlayerView.swift in Sources */,

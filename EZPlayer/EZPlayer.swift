@@ -420,9 +420,9 @@ open class EZPlayer: NSObject {
     }
     
     // MARK: - Player action
-    open func playWithURL(_ url: URL,embeddedContentView contentView: UIView? = nil, title: String? = nil) {
+    open func playWithURL(_ url: URL,embeddedContentView contentView: UIView? = nil, title: String? = nil, coverUrl: String? = nil) {
         
-        self.contentItem = EZPlayerContentItem(url: url, title: title)
+        self.contentItem = EZPlayerContentItem(url: url, title: title, coverUrl: coverUrl)
         self.contentURL = url
         
         self.prepareToPlay()
@@ -437,10 +437,10 @@ open class EZPlayer: NSObject {
         }
     }
     
-    open func replaceToPlayWithURL(_ url: URL, title: String? = nil) {
+    open func replaceToPlayWithURL(_ url: URL, title: String? = nil, coverUrl: String? = nil) {
         self.resetPlayerResource()
         
-        self.contentItem = EZPlayerContentItem(url: url, title: title)
+        self.contentItem = EZPlayerContentItem(url: url, title: title, coverUrl: coverUrl)
         self.contentURL = url
         
         guard let url = self.contentURL else {

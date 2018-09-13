@@ -45,14 +45,26 @@ class HHEmbeddedControlView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.topBarView.isHidden = true
+        
         self.seekToLabel.isHidden = true
         self.progressSlider.value = 0
+        self.progressSlider.setThumbImage(UIImage(named: "fullplayer_progress_point", in: Bundle(for: HHEmbeddedControlView.self), compatibleWith: nil), for: .normal)
         self.progressView.progress = 0
-        
+
 //        self.autohidedControlViews = [self.topBarView, self.bottomBarView]
         self.autohidedControlViews = [self.centerPlayOrPauseButton, self.bottomBarView]
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        guard let player = self.player else { return }
+        if player.contentItem?.coverUrl?.isEmpty ?? true {
+            self.coverImageView.isHidden = true
+        } else {
+            let data = try? Data(contentsOf: URL(string: (player.contentItem?.coverUrl)!)!)
+            self.coverImageView.image = UIImage(data: data!)
+        }
+    }
     
     
 }

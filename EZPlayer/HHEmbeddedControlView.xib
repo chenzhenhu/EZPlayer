@@ -76,6 +76,13 @@
                         </progressView>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="laf-fs-a1D">
                             <rect key="frame" x="58" y="9.5" width="413" height="31"/>
+                            <connections>
+                                <action selector="progressSliderTouchBegan:" destination="iN0-l3-epB" eventType="touchDown" id="TWl-nR-doH"/>
+                                <action selector="progressSliderTouchEnd:" destination="iN0-l3-epB" eventType="touchUpOutside" id="hML-E2-vES"/>
+                                <action selector="progressSliderTouchEnd:" destination="iN0-l3-epB" eventType="touchUpInside" id="hRI-rP-wUI"/>
+                                <action selector="progressSliderTouchEnd:" destination="iN0-l3-epB" eventType="touchCancel" id="k5G-sV-bi9"/>
+                                <action selector="progressSliderValueChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="3o6-Bc-vb8"/>
+                            </connections>
                         </slider>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player_mask_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="ONC-Fj-22A">
                             <rect key="frame" x="0.0" y="0.0" width="564" height="50"/>
@@ -117,6 +124,9 @@
                     <state key="normal" image="player_icon_play">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="playPauseButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="4Ox-xW-Bgv"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RT2-bB-W3g">
                     <rect key="frame" x="232" y="117.5" width="100" height="60"/>

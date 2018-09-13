@@ -872,7 +872,7 @@ open class EZPlayer: NSObject {
             if self.playerView?.controlView == nil || self.playerView?.controlView != self.controlViewForEmbedded{
                 if self.controlViewForEmbedded == nil {
                     //self.controlViewForEmbedded = self.controlViewForFullscreen ?? Bundle(for: EZPlayerControlView.self).loadNibNamed(String(describing: EZPlayerControlView.self), owner: self, options: nil)?.last as? EZPlayerControlView
-                    self.controlViewForEmbedded = self.controlViewForFullscreen ?? Bundle(for: TPPlayerControlView.self).loadNibNamed(String(describing: TPPlayerControlView.self), owner: self, options: nil)?.last as? TPPlayerControlView
+                    self.controlViewForEmbedded = Bundle(for: HHEmbeddedControlView.self).loadNibNamed(String(describing: HHEmbeddedControlView.self), owner: self, options: nil)?.last as? HHEmbeddedControlView
                 }
             }
             self.playerView?.controlView = self.controlViewForEmbedded
@@ -881,7 +881,7 @@ open class EZPlayer: NSObject {
             if self.playerView?.controlView == nil || self.playerView?.controlView != self.controlViewForFullscreen{
                 if self.controlViewForFullscreen == nil {
                     //self.controlViewForFullscreen = self.controlViewForEmbedded ?? Bundle(for: EZPlayerControlView.self).loadNibNamed(String(describing: EZPlayerControlView.self), owner: self, options: nil)?.last as? EZPlayerControlView
-                    self.controlViewForFullscreen = self.controlViewForEmbedded ?? Bundle(for: TPPlayerControlView.self).loadNibNamed(String(describing: TPPlayerControlView.self), owner: self, options: nil)?.last as? TPPlayerControlView
+                    self.controlViewForFullscreen = Bundle(for: HHFullScreenControlView.self).loadNibNamed(String(describing: HHFullScreenControlView.self), owner: self, options: nil)?.last as? HHFullScreenControlView
                 }
             }
             self.playerView?.controlView = self.controlViewForFullscreen

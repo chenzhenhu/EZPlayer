@@ -224,7 +224,7 @@
                         <constraint firstAttribute="trailing" secondItem="s1a-4z-4r2" secondAttribute="trailing" id="zh3-5E-o6T"/>
                     </constraints>
                 </view>
-                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qOu-HE-jYk">
+                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qOu-HE-jYk">
                     <rect key="frame" x="345" y="0.0" width="345" height="323"/>
                     <color key="backgroundColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>

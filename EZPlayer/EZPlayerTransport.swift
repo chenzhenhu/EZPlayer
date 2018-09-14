@@ -21,14 +21,17 @@ public protocol EZPlayerGestureRecognizer: class {
 
 
 public protocol EZPlayerCustomAction:class {
-    weak var player: EZPlayer? { get set }
+    var player: EZPlayer? { get set }
     var autohidedControlViews: [UIView] { get set }
-
 
     func playPauseButtonPressed(_ sender: Any)
     func fullEmbeddedScreenButtonPressed(_ sender: Any)
     func audioSubtitleCCButtonPressed(_ sender: Any)
     func backButtonPressed(_ sender: Any)
+}
+
+public protocol HHControlViewNotTouchView: class {
+    var notEnableViews:[UIView] {get set}
 }
 
 

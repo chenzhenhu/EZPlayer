@@ -10,10 +10,24 @@ import UIKit
 import AVFoundation
 import MediaPlayer
 
-public let constraintLeft: CGFloat = 76
+enum PanelViewType {
+    case none
+    case rate
+    case selections
+    case resolution
+}
 
-open class HHFullScreenControlView: UIView {
+public let constraintLeft: CGFloat = 76
+private let cellId = "HHPanelViewCell"
+private let rates:[[String: Any]] = [["title": "0.8X", "rate": 0.8],["title": "1.0X", "rate": 1],["title": "1.25X","rate": 1.25],["title":"1.5X", "rate": 1.5],["title":"2.0X","rate": 2]]
+private let selections:[String] = [String]()
+private let resolutions:[String] = [String]()
+private var tableViewWidth:CGFloat = 0
+
+open class HHFullScreenControlView: UIView, HHControlViewNotTouchView {
     
+    public var notEnableViews: [UIView] = [UIView]()
+
     public weak var player: EZPlayer? {
         didSet {
             player?.delegate = self
@@ -21,7 +35,7 @@ open class HHFullScreenControlView: UIView {
             self.autoHideControlView()
         }
     }
-    
+    var panelType: PanelViewType = .none
     var hideControlViewTask: Task?
     var loadingView: EZPlayerLoading = EZPlayerLoading()
     public var autohidedControlViews = [UIView]()
@@ -60,10 +74,15 @@ open class HHFullScreenControlView: UIView {
     
     @IBOutlet weak var panelView: UIView!
     
-    private lazy var rateView: RateView = {
-        let rateView = RateView(frame: self.panelView.bounds)
-        rateView.delegate = self
-        return rateView
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: self.panelView.bounds, style: .plain)
+        tableView.backgroundColor = UIColor.clear
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorInset = .zero
+        tableView.tableFooterView = UIView()
+        tableView.register(HHPanelViewCell.self, forCellReuseIdentifier: cellId)
+        return tableView
     }()
     
     
@@ -71,7 +90,7 @@ open class HHFullScreenControlView: UIView {
         super.awakeFromNib()
         self.previewView.isHidden = true
         self.panelView.isHidden = true
-        
+        self.panelView.addSubview(self.tableView)
         self.progressSlider.value = 0
         self.progressSlider.maximumTrackTintColor = UIColor.clear
         self.progressSlider.minimumTrackTintColor = UIColor.red
@@ -81,9 +100,10 @@ open class HHFullScreenControlView: UIView {
         self.progressView.trackTintColor = UIColor.white.withAlphaComponent(0.33)
         
         self.autohidedControlViews = [self.topBarView, self.bottomBarView]
+        self.notEnableViews = [self.topBarView, self.bottomBarView, self.panelView, self.tableView]
         
         if EZPlayerUtils.isPhoneX {
-            
+            tableViewWidth = self.panelView.bounds.width - constraintLeft
             self.bottomBarViewConstraintHeight.constant = 70
             self.exitFullScreenButtonConstraintLeft.constant = constraintLeft
             self.moreButtonConstraintRight.constant = constraintLeft + 10
@@ -143,7 +163,13 @@ extension HHFullScreenControlView {
     
     @IBAction func clickSpeedButton(_ sender: Any) {
         self.panelView.isHidden = false
-        self.panelView.addSubview(self.rateView)
+        self.panelType = .rate
+        let height:CGFloat = CGFloat(rates.count * 50)
+        let y = (self.panelView.bounds.height - height) / 2
+        self.tableView.frame = CGRect(x: 0, y: y, width: self.panelView.bounds.width, height: height)
+        self.tableView.bounces = false
+        self.tableView.isScrollEnabled = false
+        self.tableView.reloadData()
     }
     
     @IBAction func clickSelectionsButton(_ sender: Any) {
@@ -151,7 +177,14 @@ extension HHFullScreenControlView {
     }
     
     @IBAction func clickResolutionButton(_ sender: Any) {
-        
+        self.panelView.isHidden = false
+        self.panelType = .resolution
+        let height:CGFloat = CGFloat(rates.count * 50)
+        let y = (self.panelView.bounds.height - height) / 2
+        self.tableView.frame = CGRect(x: 0, y: y, width: self.panelView.bounds.width, height: height)
+        self.tableView.bounces = false
+        self.tableView.isScrollEnabled = false
+        self.tableView.reloadData()
     }
     
 }
@@ -348,8 +381,59 @@ extension HHFullScreenControlView: EZPlayerCustom {
     
 }
 
-extension HHFullScreenControlView: RateViewDelegate {
-    public func rateSelected(rate: Float) {
-        self.player?.rate = rate
+extension HHFullScreenControlView: UITableViewDelegate, UITableViewDataSource {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch panelType {
+        case .rate:
+            return rates.count
+        case .selections:
+            return selections.count
+        case .resolution:
+            return resolutions.count
+        default:
+            return 0
+        }
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch panelType {
+        case .rate:
+            return 50
+        case .selections:
+            return 40
+        case .resolution:
+            return 50
+        default:
+            return 0
+        }
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        switch panelType {
+        case .rate:
+            return 100
+        case .selections:
+            return 0
+        case .resolution:
+            return 100
+        default:
+            return 0
+        }
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! HHPanelViewCell
+        
+        switch panelType {
+        case .rate:
+            cell.titleLabel.text = rates[indexPath.row]["title"] as? String ?? ""
+        case .selections:
+            cell.titleLabel.text = selections[indexPath.row]
+        case .resolution:
+            cell.titleLabel.text = resolutions[indexPath.row]
+        case .none:
+            cell.isHidden = true
+        }
+        return cell
     }
 }

@@ -101,6 +101,12 @@ extension EZPlayerView: UIGestureRecognizerDelegate {
         }
         
         if self.singleTapGesture == gestureRecognizer || self.doubleTapGesture == gestureRecognizer{
+            
+            if let notTouchView = self.controlView as? HHControlViewNotTouchView {
+                print(!notTouchView.notEnableViews.contains(touch.view!) && !notTouchView.notEnableViews.contains(touch.view!.superview!))
+                return !(!notTouchView.notEnableViews.contains(touch.view!) && !notTouchView.notEnableViews.contains(touch.view!.superview!))
+            }
+            
             if let customAction =  self.controlView as? EZPlayerCustomAction{//点击控制条
                 return  !customAction.autohidedControlViews.contains(touch.view!) && !customAction.autohidedControlViews.contains(touch.view!.superview!)
             }

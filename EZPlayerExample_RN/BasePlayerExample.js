@@ -24,7 +24,7 @@ export default class EZPlayerExample_RN extends Component {
     super(props);
 
     this.state = {
-      urlText: 'http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8',
+      urlText: 'http://storeauth.tartopia.cn/o_1chq13qdtis11ghq1nqm1nf61sasc.mp4',
       source: null,
     }
 

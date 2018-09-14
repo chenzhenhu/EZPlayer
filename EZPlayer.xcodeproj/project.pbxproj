@@ -32,6 +32,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		5247E1DC214BF96B008599DC /* HHPanelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5247E1DB214BF96B008599DC /* HHPanelViewCell.swift */; };
 		527908CC214BB0190080B722 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527908CB214BB0190080B722 /* RateView.swift */; };
 		527908D0214BB2620080B722 /* RateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527908CE214BB2620080B722 /* RateViewCell.swift */; };
 		527908D1214BB2620080B722 /* RateViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527908CF214BB2620080B722 /* RateViewCell.xib */; };
@@ -73,6 +74,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5247E1DB214BF96B008599DC /* HHPanelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HHPanelViewCell.swift; sourceTree = "<group>"; };
 		527908CB214BB0190080B722 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
 		527908CE214BB2620080B722 /* RateViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewCell.swift; sourceTree = "<group>"; };
 		527908CF214BB2620080B722 /* RateViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RateViewCell.xib; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				52E76C8C214A2C25007951AB /* HHFullScreenControlView.swift */,
 				52E76C8E214A2C8F007951AB /* HHFullScreenControlView.xib */,
 				527908CB214BB0190080B722 /* RateView.swift */,
+				5247E1DB214BF96B008599DC /* HHPanelViewCell.swift */,
 			);
 			name = Skin;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				9919C1461E6D5E3C00249407 /* EZPlayerFairPlayResourceLoaderDelegate.swift in Sources */,
 				996ED44A1E00EB2C00D936D6 /* EZPlayerLoading.swift in Sources */,
 				99998A281DE3479700296EDB /* Delay.swift in Sources */,
+				5247E1DC214BF96B008599DC /* HHPanelViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

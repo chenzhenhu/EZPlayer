@@ -97,19 +97,7 @@ extension HHFullScreenControlView {
         }
         
         self.player(player, progressChanging: TimeInterval(self.progressSlider.value))
-        if !player.isM3U8 {
-            self.previewView.isHidden = false
-            self.seekToLabel.text = EZPlayerUtils.formatTime(position: TimeInterval(self.progressSlider.value))
-            player.generateThumbnails(times:  [ TimeInterval(self.progressSlider.value)],maximumSize:CGSize(width: self.previewImageView.bounds.size.width, height: self.previewImageView.bounds.size.height)) { (thumbnails) in
-                
-                if thumbnails.count > 0 {
-                    let thumbnail = thumbnails[0]
-                    if thumbnail.result == .succeeded {
-                        self.previewImageView.image = thumbnail.image
-                    }
-                }
-            }
-        }
+        
     }
     
     @IBAction func progressSliderTouchEnd(_ sender: Any) {
@@ -296,6 +284,19 @@ extension HHFullScreenControlView: EZPlayerCustom {
         self.timeLabel.text = EZPlayerUtils.formatTime(position: value, duration: player.duration ?? 0)
         if !self.progressSlider.isTracking {
             self.progressSlider.value = Float(value)
+        }
+        if !player.isM3U8 {
+            self.previewView.isHidden = false
+            self.seekToLabel.text = EZPlayerUtils.formatTime(position: TimeInterval(self.progressSlider.value))
+            player.generateThumbnails(times:  [ TimeInterval(self.progressSlider.value)],maximumSize:CGSize(width: self.previewImageView.bounds.size.width, height: self.previewImageView.bounds.size.height)) { (thumbnails) in
+                
+                if thumbnails.count > 0 {
+                    let thumbnail = thumbnails[0]
+                    if thumbnail.result == .succeeded {
+                        self.previewImageView.image = thumbnail.image
+                    }
+                }
+            }
         }
     }
     

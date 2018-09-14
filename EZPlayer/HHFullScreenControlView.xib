@@ -30,6 +30,9 @@
                             <state key="normal" image="player_icon_back">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="backButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ogr-Vv-CdU"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fta-n2-Muk">
                             <rect key="frame" x="642" y="0.0" width="40" height="50"/>
@@ -37,6 +40,9 @@
                                 <constraint firstAttribute="width" constant="40" id="KEB-I7-euA"/>
                             </constraints>
                             <state key="normal" image="fullplayer_icon_more"/>
+                            <connections>
+                                <action selector="clickMoreButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="Srb-pv-sSg"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSg-ru-laf">
                             <rect key="frame" x="53" y="0.0" width="584" height="50"/>
@@ -78,6 +84,9 @@
                             <state key="normal" image="player_icon_play">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="playPauseButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="Oou-kU-iG5"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4Z-ri-2ch">
                             <rect key="frame" x="620" y="0.0" width="50" height="50"/>
@@ -88,12 +97,22 @@
                             <state key="normal" title="1080P">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="clickResolutionButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="UQ6-pk-0wK"/>
+                            </connections>
                         </button>
                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nIq-9m-JzQ">
                             <rect key="frame" x="18" y="-1" width="654" height="2"/>
                         </progressView>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="YCF-17-Enj">
                             <rect key="frame" x="16" y="-15.5" width="658" height="31"/>
+                            <connections>
+                                <action selector="progressSliderTouchBegan:" destination="iN0-l3-epB" eventType="touchDown" id="ckC-ct-hLX"/>
+                                <action selector="progressSliderTouchEnd:" destination="iN0-l3-epB" eventType="touchUpOutside" id="LzA-dx-O4v"/>
+                                <action selector="progressSliderTouchEnd:" destination="iN0-l3-epB" eventType="touchUpInside" id="bkd-h3-X0O"/>
+                                <action selector="progressSliderTouchEnd:" destination="iN0-l3-epB" eventType="touchCancel" id="uZT-cB-9IE"/>
+                                <action selector="progressSliderValueChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="9lr-iU-twq"/>
+                            </connections>
                         </slider>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCM-5h-krh">
                             <rect key="frame" x="560" y="1" width="50" height="49"/>
@@ -104,6 +123,9 @@
                             <state key="normal" title="选集">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="clickSelectionsButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="qnU-tU-sEO"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lky-QT-oFc">
                             <rect key="frame" x="500" y="1" width="50" height="49"/>
@@ -114,6 +136,9 @@
                             <state key="normal" title="倍速">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="clickSpeedButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="xQc-PC-XnG"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYr-jm-xm6">
                             <rect key="frame" x="53" y="1" width="40" height="49"/>

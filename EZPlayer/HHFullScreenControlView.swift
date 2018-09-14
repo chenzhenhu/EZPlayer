@@ -120,67 +120,26 @@ extension HHFullScreenControlView {
         self.seekToLabel.text = ""
     }
     
-}
-
-extension HHEmbeddedControlView {
-    
-    fileprivate func autoHideControlView() {
-        guard let player = self.player, player.autohiddenTimeInterval > 0 else { return }
+    @IBAction func clickMoreButton(_ sender: Any) {
         
-        cancel(self.hideControlViewTask)
-        self.hideControlViewTask = delay(5, task: { [weak self] in
-            guard let weakSelf = self else {
-                return
-            }
-            
-            weakSelf.player?.setControlsHidden(true, animated: true)
-        })
     }
     
-    fileprivate func hideControlView(_ animated: Bool) {
-        if animated {
-            UIView.setAnimationsEnabled(false)
-            UIView.animate(withDuration: HHAnimatedDuration, delay: 0, options: .curveEaseInOut, animations: {
-                self.autohidedControlViews.forEach({ (view) in
-                    view.alpha = 0
-                })
-            }) { (finished) in
-                self.autohidedControlViews.forEach({ (view) in
-                    view.isHidden = true
-                })
-                UIView.setAnimationsEnabled(true)
-            }
-        } else {
-            self.autohidedControlViews.forEach { (view) in
-                view.alpha = 0
-                view.isHidden = true
-            }
-        }
-    }
-    
-    fileprivate func showControlView(_ animated: Bool) {
+    @IBAction func clickNextButton(_ sender: Any) {
         
-        if animated {
-            UIView.setAnimationsEnabled(false)
-            self.autohidedControlViews.forEach { (view) in
-                view.isHidden = false
-            }
-            
-            UIView.animate(withDuration: HHAnimatedDuration, delay: 0, options: .curveEaseInOut, animations: {
-                self.autohidedControlViews.forEach({ (view) in
-                    view.alpha = 1
-                })
-            }) { (finished) in
-                self.autoHideControlView()
-                UIView.setAnimationsEnabled(true)
-            }
-        } else {
-            self.autohidedControlViews.forEach { (view) in
-                view.isHidden = false
-                view.alpha = 1
-            }
-        }
     }
+    
+    @IBAction func clickSpeedButton(_ sender: Any) {
+        
+    }
+    
+    @IBAction func clickSelectionsButton(_ sender: Any) {
+        
+    }
+    
+    @IBAction func clickResolutionButton(_ sender: Any) {
+        
+    }
+    
 }
 
 extension HHFullScreenControlView {
@@ -317,7 +276,7 @@ extension HHFullScreenControlView: EZPlayerCustom {
         // ignore
     }
     
-    public func backButtonPressed(_ sender: Any) {
+    @IBAction public func backButtonPressed(_ sender: Any) {
         guard let player = self.player else { return }
         player.toEmbedded()
     }

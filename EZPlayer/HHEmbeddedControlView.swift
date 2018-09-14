@@ -81,6 +81,7 @@ open class HHEmbeddedControlView: UIView {
     
 }
 
+//MARK: UI 控件触发事件
 extension HHEmbeddedControlView {
     
     @IBAction public func progressSliderTouchBegan(_ sender: Any) {

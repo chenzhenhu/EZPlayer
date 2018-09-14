@@ -17,13 +17,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6F-cJ-8ah">
-                    <rect key="frame" x="0.0" y="0.0" width="690" height="45"/>
+                    <rect key="frame" x="0.0" y="0.0" width="690" height="50"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player_mask_top" translatesAutoresizingMaskIntoConstraints="NO" id="xc0-bI-MWE">
-                            <rect key="frame" x="0.0" y="0.0" width="690" height="45"/>
+                            <rect key="frame" x="0.0" y="0.0" width="690" height="50"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uw9-dK-gDE">
-                            <rect key="frame" x="8" y="0.0" width="40" height="45"/>
+                            <rect key="frame" x="8" y="0.0" width="40" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="uMX-xb-fT4"/>
                             </constraints>
@@ -32,14 +32,14 @@
                             </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fta-n2-Muk">
-                            <rect key="frame" x="642" y="0.0" width="40" height="45"/>
+                            <rect key="frame" x="642" y="0.0" width="40" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="KEB-I7-euA"/>
                             </constraints>
                             <state key="normal" image="fullplayer_icon_more"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSg-ru-laf">
-                            <rect key="frame" x="53" y="0.0" width="584" height="45"/>
+                            <rect key="frame" x="53" y="0.0" width="584" height="50"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                         <constraint firstItem="Uw9-dK-gDE" firstAttribute="leading" secondItem="b6F-cJ-8ah" secondAttribute="leading" constant="8" id="Jkl-za-aZL"/>
                         <constraint firstItem="Uw9-dK-gDE" firstAttribute="top" secondItem="b6F-cJ-8ah" secondAttribute="top" id="JoD-wO-ElS"/>
                         <constraint firstItem="fta-n2-Muk" firstAttribute="top" secondItem="b6F-cJ-8ah" secondAttribute="top" id="Ljf-KL-eyh"/>
-                        <constraint firstAttribute="height" constant="45" id="VT9-Rf-hYo"/>
+                        <constraint firstAttribute="height" constant="50" id="VT9-Rf-hYo"/>
                         <constraint firstAttribute="trailing" secondItem="fta-n2-Muk" secondAttribute="trailing" constant="8" id="aEm-mh-92s"/>
                         <constraint firstAttribute="bottom" secondItem="fta-n2-Muk" secondAttribute="bottom" id="oTE-k8-JlP"/>
                         <constraint firstItem="fta-n2-Muk" firstAttribute="leading" secondItem="lSg-ru-laf" secondAttribute="trailing" constant="5" id="pTL-L6-ti0"/>
@@ -212,15 +212,24 @@
             <connections>
                 <outlet property="bottomBarMaskView" destination="3eA-3L-SPc" id="dfX-vg-Deh"/>
                 <outlet property="bottomBarView" destination="TmF-jt-EhH" id="FMo-fb-o53"/>
+                <outlet property="bottomBarViewConstraintHeight" destination="S8R-M6-5IS" id="O9J-1c-QD7"/>
                 <outlet property="exitFullScreenButton" destination="Uw9-dK-gDE" id="Alv-Y1-OAt"/>
+                <outlet property="exitFullScreenButtonConstraintLeft" destination="Jkl-za-aZL" id="OSm-WM-uvv"/>
                 <outlet property="moreButton" destination="fta-n2-Muk" id="ZDX-d8-2jM"/>
+                <outlet property="moreButtonConstraintRight" destination="aEm-mh-92s" id="PbS-b0-Meb"/>
                 <outlet property="nextButton" destination="fYr-jm-xm6" id="UmA-jH-7X3"/>
                 <outlet property="playOrPauseButton" destination="axM-WP-oSZ" id="XjJ-Ob-LGH"/>
+                <outlet property="playOrPauseConstraintLeft" destination="LU8-KM-LxJ" id="MIB-c7-AmG"/>
                 <outlet property="previewImageView" destination="YP8-5U-MFu" id="J0f-dr-VXe"/>
                 <outlet property="previewView" destination="gbp-dH-N1y" id="0aE-vB-HvU"/>
                 <outlet property="progressSlider" destination="YCF-17-Enj" id="Il3-tX-1cN"/>
+                <outlet property="progressSliderConstraintLeft" destination="a1E-CQ-kFm" id="Lf4-pQ-QfL"/>
+                <outlet property="progressSliderConstraintRight" destination="rbG-Rj-mVi" id="qun-nR-hUv"/>
                 <outlet property="progressView" destination="nIq-9m-JzQ" id="VM4-gG-Pj0"/>
+                <outlet property="progressViewConstraintLeft" destination="yag-1m-Voc" id="Pvm-wB-5bD"/>
+                <outlet property="progressViewConstraintRight" destination="QJP-T5-8RA" id="rZm-kN-chl"/>
                 <outlet property="resolutionButton" destination="g4Z-ri-2ch" id="Fau-HL-DKv"/>
+                <outlet property="resolutionButtonConstraintRight" destination="Fza-bD-Txe" id="cAA-fT-gsd"/>
                 <outlet property="seekToLabel" destination="s1a-4z-4r2" id="d1s-MX-Paq"/>
                 <outlet property="selectionsButton" destination="OCM-5h-krh" id="ZvD-Od-Jmc"/>
                 <outlet property="speedButton" destination="Lky-QT-oFc" id="N4h-ON-Fr4"/>

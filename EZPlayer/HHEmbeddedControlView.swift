@@ -48,6 +48,7 @@ open class HHEmbeddedControlView: UIView {
         self.topBarView.isHidden = true
         self.coverImageView.isHidden = true
         self.seekToLabel.isHidden = true
+        self.seekToLabel.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         self.progressSlider.value = 0
         self.progressSlider.setThumbImage(UIImage(named: "fullplayer_progress_point", in: Bundle(for: HHEmbeddedControlView.self), compatibleWith: nil), for: .normal)
         self.progressView.progress = 0
@@ -95,11 +96,16 @@ extension HHEmbeddedControlView {
         }
         
         self.player(player, progressChanging: TimeInterval(self.progressSlider.value))
+        if !player.isM3U8 {
+            self.seekToLabel.isHidden = false
+            self.seekToLabel.text = EZPlayerUtils.formatTime(position: TimeInterval(self.progressSlider.value))
+        }
     }
     
     @IBAction func progressSliderTouchEnd(_ sender: Any) {
         guard let player = self.player else { return }
         self.player(player, progressDidChange: TimeInterval(self.progressSlider.value))
+        self.seekToLabel.isHidden = true
     }
 }
 
@@ -208,8 +214,8 @@ extension HHEmbeddedControlView: EZPlayerCustom {
         self.progressSlider.isEnabled = !duration.isNaN
         self.progressSlider.maximumValue = duration.isNaN ? Float(currentTime) : Float(duration)
         self.progressSlider.value = Float(currentTime)
-        self.playTimeLabel.text = EZPlayerUtils.formatTime(position: currentTime, duration: 0)
-        self.totalTimeLabel.text = EZPlayerUtils.formatTime(position: duration, duration: 0)
+        self.playTimeLabel.text = EZPlayerUtils.formatTime(position: currentTime)
+        self.totalTimeLabel.text = EZPlayerUtils.formatTime(position: duration)
         self.titleLabel.text = player.contentItem?.title ?? ""
     }
     

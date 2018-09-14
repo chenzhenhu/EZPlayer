@@ -118,6 +118,17 @@ public class EZPlayerUtils{
         return String(format: "%02d:%02d:%02d/%02d:%02d:%02d",positionHours,positionMinutes,positionSeconds,durationHours,durationMinutes,durationSeconds)
     }
     
+    public static func formatTime( position: TimeInterval) -> String{
+        
+        let positionHours = (Int(position) / 3600) % 60
+        let positionMinutes = (Int(position) / 60) % 60
+        let positionSeconds = Int(position) % 60;
+        if positionHours == 0 {
+            return String(format: "%02d:%02d",positionMinutes,positionSeconds)
+        }
+        return String(format: "%02d:%02d:%02d",positionMinutes,positionSeconds, positionHours)
+    }
+    
     
     ///  get current top viewController
     ///

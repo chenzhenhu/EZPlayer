@@ -10,12 +10,13 @@ import UIKit
 import AVFoundation
 import MediaPlayer
 
-public let constraintLeft: CGFloat = 44
+public let constraintLeft: CGFloat = 76
 
 open class HHFullScreenControlView: UIView {
     
     public weak var player: EZPlayer? {
         didSet {
+            player?.delegate = self
             player?.setControlsHidden(false, animated: true)
             self.autoHideControlView()
         }
@@ -57,13 +58,27 @@ open class HHFullScreenControlView: UIView {
     @IBOutlet weak var resolutionButtonConstraintRight: NSLayoutConstraint!
     @IBOutlet weak var playOrPauseConstraintLeft: NSLayoutConstraint!
     
+    @IBOutlet weak var panelView: UIView!
+    
+    private lazy var rateView: RateView = {
+        let rateView = RateView(frame: self.panelView.bounds)
+        rateView.delegate = self
+        return rateView
+    }()
+    
     
     override open func awakeFromNib() {
         super.awakeFromNib()
         self.previewView.isHidden = true
+        self.panelView.isHidden = true
+        
         self.progressSlider.value = 0
+        self.progressSlider.maximumTrackTintColor = UIColor.clear
+        self.progressSlider.minimumTrackTintColor = UIColor.red
         self.progressSlider.setThumbImage(UIImage(named: "fullplayer_progress_point", in: Bundle(for: HHFullScreenControlView.self), compatibleWith: nil), for: .normal)
         self.progressView.progress = 0
+        self.progressView.progressTintColor = UIColor.white
+        self.progressView.trackTintColor = UIColor.white.withAlphaComponent(0.33)
         
         self.autohidedControlViews = [self.topBarView, self.bottomBarView]
         
@@ -71,17 +86,29 @@ open class HHFullScreenControlView: UIView {
             
             self.bottomBarViewConstraintHeight.constant = 70
             self.exitFullScreenButtonConstraintLeft.constant = constraintLeft
-            self.moreButtonConstraintRight.constant = constraintLeft
+            self.moreButtonConstraintRight.constant = constraintLeft + 10
             self.progressViewConstraintLeft.constant = constraintLeft
             self.progressViewConstraintRight.constant = constraintLeft
             self.progressSliderConstraintLeft.constant = constraintLeft
             self.progressSliderConstraintRight.constant = constraintLeft
             self.playOrPauseConstraintLeft.constant = constraintLeft
-            self.resolutionButtonConstraintRight.constant = constraintLeft
+            self.resolutionButtonConstraintRight.constant = constraintLeft + 10
+        }
+    }
+    
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        guard let player = self.player else { return }
+        player.fullScreenStatusbarBackgroundColor = UIColor.clear
+        if player.state == .pause {
+            self.playOrPauseButton.setImage(UIImage(named: "player_icon_play", in: Bundle(for: HHFullScreenControlView.self), compatibleWith: nil), for: .normal)
+        } else {
+            self.playOrPauseButton.setImage(UIImage(named: "player_icon_pause", in: Bundle(for: HHFullScreenControlView.self), compatibleWith: nil), for: .normal)
         }
     }
 }
 
+//MARK: UI 控件事件
 extension HHFullScreenControlView {
     
     @IBAction public func progressSliderTouchBegan(_ sender: Any) {
@@ -103,9 +130,7 @@ extension HHFullScreenControlView {
     @IBAction func progressSliderTouchEnd(_ sender: Any) {
         guard let player = self.player else { return }
         self.player(player, progressDidChange: TimeInterval(self.progressSlider.value))
-        self.previewView.isHidden = true
-        self.previewImageView.image = nil
-        self.seekToLabel.text = ""
+        
     }
     
     @IBAction func clickMoreButton(_ sender: Any) {
@@ -117,7 +142,8 @@ extension HHFullScreenControlView {
     }
     
     @IBAction func clickSpeedButton(_ sender: Any) {
-        
+        self.panelView.isHidden = false
+        self.panelView.addSubview(self.rateView)
     }
     
     @IBAction func clickSelectionsButton(_ sender: Any) {
@@ -301,6 +327,7 @@ extension HHFullScreenControlView: EZPlayerCustom {
     }
     
     public func player(_ player: EZPlayer, progressDidChange value: TimeInterval) {
+        self.previewView.isHidden = true
         if player.isLive ?? true{
             return
         }
@@ -319,4 +346,10 @@ extension HHFullScreenControlView: EZPlayerCustom {
     }
     
     
+}
+
+extension HHFullScreenControlView: RateViewDelegate {
+    public func rateSelected(rate: Float) {
+        self.player?.rate = rate
+    }
 }

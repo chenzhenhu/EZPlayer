@@ -283,17 +283,17 @@ open class EZPlayer: NSObject {
             
             if oldValue != state{
                 
-                (self.controlView as? EZPlayerDelegate)?.player(self, playerStateDidChange: state)
+//                (self.controlView as? EZPlayerDelegate)?.player(self, playerStateDidChange: state)
                 self.delegate?.player(self, playerStateDidChange: state)
                 NotificationCenter.default.post(name: .EZPlayerStatusDidChange, object: self, userInfo: [Notification.Key.EZPlayerNewStateKey: state,Notification.Key.EZPlayerOldStateKey: oldValue])
                 switch state {
                 case  .readyToPlay,.playing ,.pause,.seekingForward,.seekingBackward,.stopped,.bufferFinished:
-                    (self.controlView as? EZPlayerDelegate)?.player(self, showLoading: false)
+//                    (self.controlView as? EZPlayerDelegate)?.player(self, showLoading: false)
                     self.delegate?.player(self, showLoading: false)
                     NotificationCenter.default.post(name: .EZPlayerLoadingDidChange, object: self, userInfo: [Notification.Key.EZPlayerLoadingDidChangeKey: false])
                     break
                 default:
-                    (self.controlView as? EZPlayerDelegate)?.player(self, showLoading: true)
+//                    (self.controlView as? EZPlayerDelegate)?.player(self, showLoading: true)
                     self.delegate?.player(self, showLoading: true)
                     NotificationCenter.default.post(name: .EZPlayerLoadingDidChange, object: self, userInfo: [Notification.Key.EZPlayerLoadingDidChangeKey: true])
                     break
@@ -312,7 +312,7 @@ open class EZPlayer: NSObject {
     open private(set)  var displayMode = EZPlayerDisplayMode.none{
         didSet{
             if oldValue != displayMode{
-                (self.controlView as? EZPlayerDelegate)?.player(self, playerDisplayModeDidChange: displayMode)
+//                (self.controlView as? EZPlayerDelegate)?.player(self, playerDisplayModeDidChange: displayMode)
                 self.delegate?.player(self, playerDisplayModeDidChange: displayMode)
                 NotificationCenter.default.post(name: .EZPlayerDisplayModeDidChange, object: self, userInfo: [Notification.Key.EZPlayerDisplayModeDidChangeKey: displayMode])
                 
@@ -851,7 +851,7 @@ open class EZPlayer: NSObject {
     
     open func setControlsHidden(_ hidden: Bool, animated: Bool = false){
         self.controlsHidden = hidden
-        (self.controlView as? EZPlayerDelegate)?.player(self, playerControlsHiddenDidChange: hidden ,animated: animated )
+//        (self.controlView as? EZPlayerDelegate)?.player(self, playerControlsHiddenDidChange: hidden ,animated: animated )
         self.delegate?.player(self, playerControlsHiddenDidChange: hidden,animated: animated)
         NotificationCenter.default.post(name: .EZPlayerControlsHiddenDidChange, object: self, userInfo: [Notification.Key.EZPlayerControlsHiddenDidChangeKey: hidden,Notification.Key.EZPlayerControlsHiddenDidChangeByAnimatedKey: animated])
     }
@@ -936,7 +936,7 @@ open class EZPlayer: NSObject {
                 }
             }
             
-            (weakSelf.controlView as? EZPlayerDelegate)?.playerHeartbeat(weakSelf)
+//            (weakSelf.controlView as? EZPlayerDelegate)?.playerHeartbeat(weakSelf)
             weakSelf.delegate?.playerHeartbeat(weakSelf)
             NotificationCenter.default.post(name: .EZPlayerHeartbeat, object: self, userInfo:nil)
             
@@ -966,7 +966,7 @@ open class EZPlayer: NSObject {
         (self.playerView?.layer as! AVPlayerLayer).videoGravity = AVLayerVideoGravity(rawValue: self.videoGravity.rawValue)
         self.playerView?.config(player: self)
         
-        (self.controlView as? EZPlayerDelegate)?.player(self, showLoading: true)
+//        (self.controlView as? EZPlayerDelegate)?.player(self, showLoading: true)
         self.delegate?.player(self, showLoading: true)
         NotificationCenter.default.post(name: .EZPlayerLoadingDidChange, object: self, userInfo: [Notification.Key.EZPlayerLoadingDidChangeKey: true])
         
@@ -980,7 +980,7 @@ open class EZPlayer: NSObject {
                 return
             }
             
-            (weakSelf.controlView as? EZPlayerDelegate)?.player(weakSelf, currentTime: weakSelf.currentTime ?? 0, duration: weakSelf.duration ?? 0)
+//            (weakSelf.controlView as? EZPlayerDelegate)?.player(weakSelf, currentTime: weakSelf.currentTime ?? 0, duration: weakSelf.duration ?? 0)
             weakSelf.delegate?.player(weakSelf, currentTime: weakSelf.currentTime ?? 0, duration: weakSelf.duration ?? 0)
             NotificationCenter.default.post(name: .EZPlayerPlaybackTimeDidChange, object: self, userInfo:nil)
             
@@ -1002,10 +1002,10 @@ open class EZPlayer: NSObject {
         
         self.playerView?.layer.removeAllAnimations()
         
-        (self.controlView as? EZPlayerDelegate)?.player(self, bufferDurationDidChange: 0, totalDuration: 0)
+//        (self.controlView as? EZPlayerDelegate)?.player(self, bufferDurationDidChange: 0, totalDuration: 0)
         self.delegate?.player(self, bufferDurationDidChange: 0, totalDuration: 0)
         
-        (self.controlView as? EZPlayerDelegate)?.player(self, currentTime:0, duration: 0)
+//        (self.controlView as? EZPlayerDelegate)?.player(self, currentTime:0, duration: 0)
         self.delegate?.player(self, currentTime: 0, duration: 0)
         NotificationCenter.default.post(name: .EZPlayerPlaybackTimeDidChange, object: self, userInfo:nil)
     }
@@ -1115,7 +1115,7 @@ extension EZPlayer {
                     
                 case #keyPath(AVPlayerItem.loadedTimeRanges):
                     printLog("AVPlayerItem's loadedTimeRanges is changed")
-                    (self.controlView as? EZPlayerDelegate)?.player(self, bufferDurationDidChange: item.bufferDuration ?? 0, totalDuration: self.duration ?? 0)
+//                    (self.controlView as? EZPlayerDelegate)?.player(self, bufferDurationDidChange: item.bufferDuration ?? 0, totalDuration: self.duration ?? 0)
                     self.delegate?.player(self, bufferDurationDidChange: item.bufferDuration ?? 0, totalDuration: self.duration ?? 0)
                 case #keyPath(AVPlayerItem.playbackBufferEmpty):
                     printLog("AVPlayerItem's playbackBufferEmpty is changed")

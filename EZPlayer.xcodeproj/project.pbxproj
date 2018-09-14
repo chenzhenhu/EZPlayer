@@ -32,6 +32,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		527908CC214BB0190080B722 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527908CB214BB0190080B722 /* RateView.swift */; };
+		527908D0214BB2620080B722 /* RateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527908CE214BB2620080B722 /* RateViewCell.swift */; };
+		527908D1214BB2620080B722 /* RateViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527908CF214BB2620080B722 /* RateViewCell.xib */; };
 		528EB56220FF406D003F060C /* TPPlayerControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528EB56120FF406D003F060C /* TPPlayerControlView.xib */; };
 		528EB56420FF40BC003F060C /* TPPlayerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EB56320FF40BC003F060C /* TPPlayerControlView.swift */; };
 		528EB56621006605003F060C /* TPPlayerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EB56521006605003F060C /* TPPlayerSlider.swift */; };
@@ -70,6 +73,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		527908CB214BB0190080B722 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
+		527908CE214BB2620080B722 /* RateViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewCell.swift; sourceTree = "<group>"; };
+		527908CF214BB2620080B722 /* RateViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RateViewCell.xib; sourceTree = "<group>"; };
 		528EB56120FF406D003F060C /* TPPlayerControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPPlayerControlView.xib; sourceTree = "<group>"; };
 		528EB56320FF40BC003F060C /* TPPlayerControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPPlayerControlView.swift; sourceTree = "<group>"; };
 		528EB56521006605003F060C /* TPPlayerSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPPlayerSlider.swift; sourceTree = "<group>"; };
@@ -120,6 +126,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		527908CD214BB23A0080B722 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				527908CE214BB2620080B722 /* RateViewCell.swift */,
+				527908CF214BB2620080B722 /* RateViewCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		9919C1421E6D504800249407 /* Features */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +220,7 @@
 		99EB8CAE1E0FF41A00176BF2 /* Skin */ = {
 			isa = PBXGroup;
 			children = (
+				527908CD214BB23A0080B722 /* Cell */,
 				995E79271DD9A2E9006CE7E9 /* EZPlayerControlView.swift */,
 				995E79291DD9A322006CE7E9 /* EZPlayerControlView.xib */,
 				99EB8CAF1E0FFEEC00176BF2 /* EZPlayerFloatView.swift */,
@@ -215,6 +231,7 @@
 				52E76C8A214A1723007951AB /* HHEmbeddedControlView.xib */,
 				52E76C8C214A2C25007951AB /* HHFullScreenControlView.swift */,
 				52E76C8E214A2C8F007951AB /* HHFullScreenControlView.xib */,
+				527908CB214BB0190080B722 /* RateView.swift */,
 			);
 			name = Skin;
 			sourceTree = "<group>";
@@ -306,6 +323,7 @@
 				528EB56220FF406D003F060C /* TPPlayerControlView.xib in Resources */,
 				991492311DDC0274005FF2BD /* EZPlayer.xcassets in Resources */,
 				52E76C8B214A1723007951AB /* HHEmbeddedControlView.xib in Resources */,
+				527908D1214BB2620080B722 /* RateViewCell.xib in Resources */,
 				99EB8CB21E0FFF0300176BF2 /* EZPlayerFloatView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,10 +380,12 @@
 				99EB8CB01E0FFEEC00176BF2 /* EZPlayerFloatView.swift in Sources */,
 				99998A261DE3450700296EDB /* Timer+EZPlayer.swift in Sources */,
 				99C221DA1DDCAEEA00167DBE /* EZPlayerTransportExtension.swift in Sources */,
+				527908D0214BB2620080B722 /* RateViewCell.swift in Sources */,
 				995D47AA1DFFB05500BEB41B /* EZPlayerFloatContainer.swift in Sources */,
 				99818A6E1DE9C760000DAC1C /* EZPlayerFullScreenViewController.swift in Sources */,
 				995E79241DD99E92006CE7E9 /* EZPlayer.swift in Sources */,
 				528EB56420FF40BC003F060C /* TPPlayerControlView.swift in Sources */,
+				527908CC214BB0190080B722 /* RateView.swift in Sources */,
 				9919C1441E6D545A00249407 /* EZPlayerAVAssetResourceLoaderDelegate.swift in Sources */,
 				991492341DDC166A005FF2BD /* AVAsset+EZPlayer.swift in Sources */,
 				995E79521DD9D166006CE7E9 /* EZPlayerUtils.swift in Sources */,

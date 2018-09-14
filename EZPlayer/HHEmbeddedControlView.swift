@@ -17,6 +17,7 @@ open class HHEmbeddedControlView: UIView {
     
     weak public var player: EZPlayer? {
         didSet {
+            player?.delegate = self
             player?.setControlsHidden(false, animated: true)
             self.autoHideControlView()
         }
@@ -50,8 +51,12 @@ open class HHEmbeddedControlView: UIView {
         self.seekToLabel.isHidden = true
         self.seekToLabel.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         self.progressSlider.value = 0
+        self.progressSlider.maximumTrackTintColor = UIColor.clear
+        self.progressSlider.minimumTrackTintColor = UIColor.red
         self.progressSlider.setThumbImage(UIImage(named: "fullplayer_progress_point", in: Bundle(for: HHEmbeddedControlView.self), compatibleWith: nil), for: .normal)
         self.progressView.progress = 0
+        self.progressView.progressTintColor = UIColor.white
+        self.progressView.trackTintColor = UIColor.white.withAlphaComponent(0.33)
         
         self.centerPlayOrPauseButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         self.centerPlayOrPauseButton.clipsToBounds = true
@@ -70,6 +75,12 @@ open class HHEmbeddedControlView: UIView {
             self.coverImageView.isHidden = false
             let data = try? Data(contentsOf: URL(string: (player.contentItem?.coverUrl)!)!)
             self.coverImageView.image = UIImage(data: data!)
+        }
+        if player.state == .pause {
+            self.centerPlayOrPauseButton.setImage(UIImage(named: "player_icon_play", in: Bundle(for: HHEmbeddedControlView.self), compatibleWith: nil), for: .normal)
+            
+        } else {
+            self.centerPlayOrPauseButton.setImage(UIImage(named: "player_icon_pause", in: Bundle(for: HHEmbeddedControlView.self), compatibleWith: nil), for: .normal)
         }
     }
     

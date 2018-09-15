@@ -26,6 +26,7 @@ open class HHEmbeddedControlView: UIView {
     var hideControlViewTask: Task?
     var loadingView: EZPlayerLoading = EZPlayerLoading()
     public var autohidedControlViews = [UIView]()
+    public var notEnableViews: [UIView] = [UIView]()
     fileprivate var isSliding: Bool = false
 
     @IBOutlet weak var topBarView: UIView!

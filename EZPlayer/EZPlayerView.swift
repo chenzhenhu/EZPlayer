@@ -102,13 +102,22 @@ extension EZPlayerView: UIGestureRecognizerDelegate {
         
         if self.singleTapGesture == gestureRecognizer || self.doubleTapGesture == gestureRecognizer{
             
-            if let notTouchView = self.controlView as? HHControlViewNotTouchView {
-                print(!notTouchView.notEnableViews.contains(touch.view!) && !notTouchView.notEnableViews.contains(touch.view!.superview!))
-                return !(!notTouchView.notEnableViews.contains(touch.view!) && !notTouchView.notEnableViews.contains(touch.view!.superview!))
-            }
-            
             if let customAction =  self.controlView as? EZPlayerCustomAction{//点击控制条
-                return  !customAction.autohidedControlViews.contains(touch.view!) && !customAction.autohidedControlViews.contains(touch.view!.superview!)
+                
+                if customAction.notEnableViews.count == 0 {
+                    return  !customAction.autohidedControlViews.contains(touch.view!) && !customAction.autohidedControlViews.contains(touch.view!.superview!)
+                } else if customAction.autohidedControlViews.count == 0 {
+                    return  !(!customAction.notEnableViews.contains(touch.view!) && !customAction.notEnableViews.contains(touch.view!.superview!))
+                } else {
+                    if String(describing: touch.view!.classForCoder) == "UITableViewCellContentView" {
+                        return false
+                    }
+                    
+                    
+                    return !customAction.notEnableViews.contains(touch.view!) && !customAction.notEnableViews.contains(touch.view!.superview!)
+                }
+                
+                
             }
         }else if self.panGesture == gestureRecognizer{
             if player.displayMode == .float {//float模式不支持划动

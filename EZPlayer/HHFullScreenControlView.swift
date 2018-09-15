@@ -19,14 +19,16 @@ enum PanelViewType {
 
 public let constraintLeft: CGFloat = 76
 private let cellId = "HHPanelViewCell"
-private let rates:[[String: Any]] = [["title": "0.8X", "rate": 0.8],["title": "1.0X", "rate": 1],["title": "1.25X","rate": 1.25],["title":"1.5X", "rate": 1.5],["title":"2.0X","rate": 2]]
+private let rates:[RateModel] = [RateModel(title: "0.8X", rate: 0.8),
+                                   RateModel(title: "1.0X", rate: 1.0),
+                                   RateModel(title: "1.25X", rate: 1.25),
+                                   RateModel(title: "1.5X", rate: 1.5),
+                                   RateModel(title: "2.0X", rate: 2.0),]
 private let selections:[String] = [String]()
 private let resolutions:[String] = [String]()
 private var tableViewWidth:CGFloat = 0
 
-open class HHFullScreenControlView: UIView, HHControlViewNotTouchView {
-    
-    public var notEnableViews: [UIView] = [UIView]()
+open class HHFullScreenControlView: UIView {
 
     public weak var player: EZPlayer? {
         didSet {
@@ -39,6 +41,7 @@ open class HHFullScreenControlView: UIView, HHControlViewNotTouchView {
     var hideControlViewTask: Task?
     var loadingView: EZPlayerLoading = EZPlayerLoading()
     public var autohidedControlViews = [UIView]()
+    public var notEnableViews: [UIView] = [UIView]()
     fileprivate var isSliding: Bool = false
 
     @IBOutlet weak var topBarView: UIView!
@@ -162,6 +165,7 @@ extension HHFullScreenControlView {
     }
     
     @IBAction func clickSpeedButton(_ sender: Any) {
+        self.player?.setControlsHidden(true, animated: true)
         self.panelView.isHidden = false
         self.panelType = .rate
         let height:CGFloat = CGFloat(rates.count * 50)
@@ -250,6 +254,7 @@ extension HHFullScreenControlView {
 }
 
 extension HHFullScreenControlView: EZPlayerCustom {
+    
     public func player(_ player: EZPlayer, playerStateDidChange state: EZPlayerState) {
         switch state {
         case .playing, .buffering:
@@ -371,10 +376,16 @@ extension HHFullScreenControlView: EZPlayerCustom {
     }
     
     public func player(_ player: EZPlayer, singleTapGestureTapped singleTap: UITapGestureRecognizer) {
+        if !self.panelView.isHidden {
+            self.panelView.isHidden = true
+        }
         player.setControlsHidden(!player.controlsHidden, animated: true)
     }
     
     public func player(_ player: EZPlayer, doubleTapGestureTapped doubleTap: UITapGestureRecognizer) {
+        if !self.panelView.isHidden {
+            self.panelView.isHidden = true
+        }
         self.playPauseButtonPressed(doubleTap)
     }
     
@@ -426,7 +437,7 @@ extension HHFullScreenControlView: UITableViewDelegate, UITableViewDataSource {
         
         switch panelType {
         case .rate:
-            cell.titleLabel.text = rates[indexPath.row]["title"] as? String ?? ""
+            cell.titleLabel.text = rates[indexPath.row].title
         case .selections:
             cell.titleLabel.text = selections[indexPath.row]
         case .resolution:
@@ -435,5 +446,19 @@ extension HHFullScreenControlView: UITableViewDelegate, UITableViewDataSource {
             cell.isHidden = true
         }
         return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch panelType {
+        case .rate:
+            let rate = rates[indexPath.row].rate
+            self.player?.rate = rate
+        case .selections:
+            print("")
+        case .resolution:
+            print("")
+        case .none:
+            print("")
+        }
     }
 }

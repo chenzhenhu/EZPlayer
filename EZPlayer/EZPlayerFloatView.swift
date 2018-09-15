@@ -9,6 +9,8 @@
 import UIKit
 
 open class EZPlayerFloatView: UIView, EZPlayerCustomAction {
+    public var notEnableViews: [UIView] = [UIView]()
+    
     public var autohidedControlViews = [UIView]()
 
 

@@ -21,7 +21,7 @@ open class TPPlayerControlView: UIView {
 
     var hideControlViewTask: Task?
     public var autohidedControlViews = [UIView]()
-    
+    public var notEnableViews: [UIView] = [UIView]()
     @IBOutlet weak var navBarContainer: UIView!
     @IBOutlet weak var navBarContainerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var toolBarContainerBottomConstraint: NSLayoutConstraint!

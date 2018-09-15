@@ -25,6 +25,7 @@ open class EZPlayerControlView: UIView{
     var hideControlViewTask: Task?
 
     public var autohidedControlViews = [UIView]()
+    public var notEnableViews: [UIView] = [UIView]()
     //    var controlsHidden = false
     @IBOutlet weak var navBarContainer: UIView!
     @IBOutlet weak var navBarContainerTopConstraint: NSLayoutConstraint!

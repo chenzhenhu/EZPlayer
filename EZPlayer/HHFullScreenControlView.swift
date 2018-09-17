@@ -24,9 +24,8 @@ private let rates:[RateModel] = [RateModel(title: "0.8X", rate: 0.8),
                                    RateModel(title: "1.25X", rate: 1.25),
                                    RateModel(title: "1.5X", rate: 1.5),
                                    RateModel(title: "2.0X", rate: 2.0),]
-private let selections:[String] = [String]()
-private let resolutions:[String] = [String]()
-private var tableViewWidth:CGFloat = 0
+private var selections:[String] = [String]()
+private var resolutions:[String] = [String]()
 
 open class HHFullScreenControlView: UIView {
 
@@ -43,6 +42,9 @@ open class HHFullScreenControlView: UIView {
     public var autohidedControlViews = [UIView]()
     public var notEnableViews: [UIView] = [UIView]()
     fileprivate var isSliding: Bool = false
+    fileprivate var rateIndexPath: IndexPath?
+    fileprivate var selectionIndexPath: IndexPath?
+    fileprivate var resolutionIndexPath: IndexPath?
 
     @IBOutlet weak var topBarView: UIView!
     @IBOutlet weak var topBarMaskView: UIImageView!
@@ -74,6 +76,7 @@ open class HHFullScreenControlView: UIView {
     @IBOutlet weak var progressViewConstraintRight: NSLayoutConstraint!
     @IBOutlet weak var resolutionButtonConstraintRight: NSLayoutConstraint!
     @IBOutlet weak var playOrPauseConstraintLeft: NSLayoutConstraint!
+    @IBOutlet weak var resolutionButtonConstraintWidth: NSLayoutConstraint!
     
     @IBOutlet weak var panelView: UIView!
     
@@ -84,6 +87,7 @@ open class HHFullScreenControlView: UIView {
         tableView.dataSource = self
         tableView.separatorInset = .zero
         tableView.tableFooterView = UIView()
+        tableView.contentInset = UIEdgeInsetsMake(20, 0, 20, 0)
         tableView.register(HHPanelViewCell.self, forCellReuseIdentifier: cellId)
         return tableView
     }()
@@ -91,6 +95,7 @@ open class HHFullScreenControlView: UIView {
     
     override open func awakeFromNib() {
         super.awakeFromNib()
+        self.resolutionButtonConstraintWidth.constant = 0
         self.previewView.isHidden = true
         self.panelView.isHidden = true
         self.panelView.addSubview(self.tableView)
@@ -106,7 +111,7 @@ open class HHFullScreenControlView: UIView {
         self.notEnableViews = [self.topBarView, self.bottomBarView, self.panelView, self.tableView]
         
         if EZPlayerUtils.isPhoneX {
-            tableViewWidth = self.panelView.bounds.width - constraintLeft
+            
             self.bottomBarViewConstraintHeight.constant = 70
             self.exitFullScreenButtonConstraintLeft.constant = constraintLeft
             self.moreButtonConstraintRight.constant = constraintLeft + 10
@@ -127,6 +132,11 @@ open class HHFullScreenControlView: UIView {
             self.playOrPauseButton.setImage(UIImage(named: "player_icon_play", in: Bundle(for: HHFullScreenControlView.self), compatibleWith: nil), for: .normal)
         } else {
             self.playOrPauseButton.setImage(UIImage(named: "player_icon_pause", in: Bundle(for: HHFullScreenControlView.self), compatibleWith: nil), for: .normal)
+        }
+        
+        selections.removeAll()
+        if let title = player.contentItem?.title, !title.isEmpty {
+            selections.append(title)
         }
     }
 }
@@ -161,7 +171,7 @@ extension HHFullScreenControlView {
     }
     
     @IBAction func clickNextButton(_ sender: Any) {
-        
+        NotificationCenter.default.post(name: Notification.Name.EZPlayerPressNextButton, object: ["index": 0, "currentTime": self.player?.currentTime])
     }
     
     @IBAction func clickSpeedButton(_ sender: Any) {
@@ -169,23 +179,30 @@ extension HHFullScreenControlView {
         self.panelView.isHidden = false
         self.panelType = .rate
         let height:CGFloat = CGFloat(rates.count * 50)
-        let y = (self.panelView.bounds.height - height) / 2
-        self.tableView.frame = CGRect(x: 0, y: y, width: self.panelView.bounds.width, height: height)
+        let topBottom = (self.panelView.bounds.height - height) / 2
+        self.tableView.contentInset = UIEdgeInsetsMake(topBottom, 0, topBottom, 0)
         self.tableView.bounces = false
         self.tableView.isScrollEnabled = false
         self.tableView.reloadData()
     }
     
     @IBAction func clickSelectionsButton(_ sender: Any) {
-        
+        self.player?.setControlsHidden(true, animated: true)
+        self.panelView.isHidden = false
+        self.panelType = .selections
+        self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 20, 0)
+        self.tableView.bounces = true
+        self.tableView.isScrollEnabled = true
+        self.tableView.reloadData()
     }
     
     @IBAction func clickResolutionButton(_ sender: Any) {
+        self.player?.setControlsHidden(true, animated: true)
         self.panelView.isHidden = false
         self.panelType = .resolution
         let height:CGFloat = CGFloat(rates.count * 50)
-        let y = (self.panelView.bounds.height - height) / 2
-        self.tableView.frame = CGRect(x: 0, y: y, width: self.panelView.bounds.width, height: height)
+        let topBottom = (self.panelView.bounds.height - height) / 2
+        self.tableView.contentInset = UIEdgeInsetsMake(topBottom, 0, topBottom, 0)
         self.tableView.bounces = false
         self.tableView.isScrollEnabled = false
         self.tableView.reloadData()
@@ -297,6 +314,9 @@ extension HHFullScreenControlView: EZPlayerCustom {
         self.progressSlider.value = Float(currentTime)
         self.timeLabel.text = EZPlayerUtils.formatTime(position: currentTime, duration: duration)
         self.titleLabel.text = player.contentItem?.title ?? ""
+        if currentTime == duration {
+            NotificationCenter.default.post(name: .EZPlayerPlayFinished, object: nil)
+        }
     }
     
     public func playerHeartbeat(_ player: EZPlayer) {
@@ -419,25 +439,20 @@ extension HHFullScreenControlView: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        switch panelType {
-        case .rate:
-            return 100
-        case .selections:
-            return 0
-        case .resolution:
-            return 100
-        default:
-            return 0
-        }
-    }
-    
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! HHPanelViewCell
         
         switch panelType {
         case .rate:
-            cell.titleLabel.text = rates[indexPath.row].title
+            let rateModel = rates[indexPath.row]
+            cell.titleLabel.text = rateModel.title
+            let rate = self.player?.rate ?? 1.0
+            if rate == rateModel.rate {
+                cell.backgroundColor = UIColor.red
+                rateIndexPath = indexPath
+            } else {
+                cell.backgroundColor = UIColor.clear
+            }
         case .selections:
             cell.titleLabel.text = selections[indexPath.row]
         case .resolution:
@@ -449,16 +464,26 @@ extension HHFullScreenControlView: UITableViewDelegate, UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath).backgroundColor = UIColor.red
         switch panelType {
         case .rate:
             let rate = rates[indexPath.row].rate
             self.player?.rate = rate
+            if rateIndexPath != nil {
+                tableView.dequeueReusableCell(withIdentifier: cellId, for: rateIndexPath!).backgroundColor = UIColor.clear
+            }
+            
         case .selections:
-            print("")
+            if selectionIndexPath != nil {
+                tableView.dequeueReusableCell(withIdentifier: cellId, for: selectionIndexPath!).backgroundColor = UIColor.clear
+            }
+            NotificationCenter.default.post(name: .EZPlayerPressSelections, object: ["currentTime": self.player?.currentTime ?? 0, "currentIndex": indexPath.row])
         case .resolution:
             print("")
         case .none:
             print("")
         }
+        self.panelView.isHidden = true
+        self.player?.setControlsHidden(false, animated: true)
     }
 }

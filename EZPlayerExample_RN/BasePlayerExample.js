@@ -55,7 +55,7 @@ export default class EZPlayerExample_RN extends Component {
               {/* this.setState({
                 source: { uri: this.state.urlText },
               }); */}
-              this._ezPlayer.replaceToPlay({ uri: this.state.urlText })
+              this._ezPlayer.replaceToPlay({ uri: this.state.urlText , title: "测试"})
             }}>
               <Text style={[styles.buttonText]}>play</Text>
             </TouchableOpacity>

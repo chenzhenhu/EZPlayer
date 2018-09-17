@@ -13,31 +13,14 @@ import EZPlayer
 open class EZRNPlayerView: UIView {
   var player: EZPlayer?
   
-  public var source: [String: Any]? = nil {
-    willSet {
-      //      if self.player != nil {
-      //        let newUri = newValue?["uri"] as? String
-      //        let oldUri = source?["uri"] as? String
-      //        if newUri == nil {
-      //          self.stop()
-      //        }else if newUri != nil && oldUri != nil && newUri! != oldUri! {
-      //          self.stop()
-      //        }
-      //      }
-      
-      //      if self.player != nil {
-      //      self.stop()
-      //      }
-    }
+  @objc public var source: [String: Any]? = nil {
+
     didSet {
-      //        let oldUri = oldValue?["uri"] as? String
-      //        let newUri = source?["uri"] as? String
-      //        if newUri != nil && ( oldUri == nil || oldUri! != newUri!) {
-      //          self.initPlayerIfNeeded()
-      //        }
+      
       if let newUri = source?["uri"] as? String {
         if self.player != nil{
-          self.player?.replaceToPlayWithURL(URL(string: newUri)!)
+//          self.player?.replaceToPlayWithURL(URL(string: newUri)!)
+          self.player?.replaceToPlayWithURL(URL(string: newUri)!, title: source?["title"] as? String, coverUrl: source?["coverUrl"] as? String)
         }else{
           self.initPlayerIfNeeded()
         }
@@ -46,13 +29,13 @@ open class EZRNPlayerView: UIView {
     }
   }
   
-  public var autoPlay: Bool = true {
+  @objc public var autoPlay: Bool = true {
     didSet {
       self.player?.autoPlay = autoPlay
     }
   }
   
-  public var useDefaultUI: Bool = true {
+  @objc public var useDefaultUI: Bool = true {
     didSet {
       if useDefaultUI{
         self.player?.controlViewForIntercept = nil
@@ -62,33 +45,46 @@ open class EZRNPlayerView: UIView {
     }
   }
   
-  public var videoGravity: String = "aspect"{
+  @objc public var videoGravity: String = "aspect"{
     didSet {
      self.player?.videoGravity = self.getEZPlayerVideoGravity(videoGravity: videoGravity)
     }
   }
   
-  public var fullScreenMode: String = "landscape"{
+  @objc public var fullScreenMode: String = "landscape"{
     didSet {
       self.player?.fullScreenMode = self.getEZPlayerFullScreenMode(fullScreenMode: fullScreenMode)
     }
   }
   
-  
+  @objc public var selections: [[String: Any]]? {
+    willSet{
+      player?.selectionsModels.removeAll()
+    }
+    didSet {
+      guard let selections = selections else { return }
+      for dict in selections {
+        player?.selectionsModels.append(SelectionsModel(dict: dict))
+      }
+    }
+  }
   
 
   
-  public var onPlayerHeartbeat: RCTDirectEventBlock?
-  public var onPlayerPlaybackTimeDidChange: RCTDirectEventBlock?
-  public var onPlayerStatusDidChange: RCTDirectEventBlock?
-  public var onPlayerPlaybackDidFinish: RCTDirectEventBlock?
-  public var onPlayerLoadingDidChange: RCTDirectEventBlock?
-  public var onPlayerControlsHiddenDidChange: RCTDirectEventBlock?
-  public var onPlayerDisplayModeDidChange: RCTDirectEventBlock?
-  public var onPlayerDisplayModeChangedWillAppear: RCTDirectEventBlock?
-  public var onPlayerDisplayModeChangedDidAppear: RCTDirectEventBlock?
-  public var onPlayerTapGestureRecognizer: RCTDirectEventBlock?
-  public var onPlayerDidPersistContentKey: RCTDirectEventBlock?
+  @objc public var onPlayerHeartbeat: RCTDirectEventBlock?
+  @objc public var onPlayerPlaybackTimeDidChange: RCTDirectEventBlock?
+  @objc public var onPlayerStatusDidChange: RCTDirectEventBlock?
+  @objc public var onPlayerPlaybackDidFinish: RCTDirectEventBlock?
+  @objc public var onPlayerLoadingDidChange: RCTDirectEventBlock?
+  @objc public var onPlayerControlsHiddenDidChange: RCTDirectEventBlock?
+  @objc public var onPlayerDisplayModeDidChange: RCTDirectEventBlock?
+  @objc public var onPlayerDisplayModeChangedWillAppear: RCTDirectEventBlock?
+  @objc public var onPlayerDisplayModeChangedDidAppear: RCTDirectEventBlock?
+  @objc public var onPlayerTapGestureRecognizer: RCTDirectEventBlock?
+  @objc public var onPlayerDidPersistContentKey: RCTDirectEventBlock?
+  @objc public var onPlayerPlayFinished: RCTDirectEventBlock?
+  @objc public var onPlayerClickNextButton: RCTDirectEventBlock?
+  @objc public var onPlayerClickSelections: RCTDirectEventBlock?
   
   // MARK: - Life
 
@@ -242,6 +238,12 @@ extension EZRNPlayerView {
     NotificationCenter.default.addObserver(self, selector: #selector(self.playerTapGestureRecognizer(_:)), name: NSNotification.Name.EZPlayerTapGestureRecognizer, object: nil)
     
     NotificationCenter.default.addObserver(self, selector: #selector(self.playerDidPersistContentKey(_:)), name: NSNotification.Name.EZPlayerDidPersistContentKey, object: nil)
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(self.playerPlayFinished(_:)), name: NSNotification.Name.EZPlayerPlayFinished, object: nil)
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(self.playerClickNextButton(_:)), name: NSNotification.Name.EZPlayerPressNextButton, object: nil)
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(self.playerClickSelections(_:)), name: NSNotification.Name.EZPlayerPressSelections, object: nil)
   }
   
   open func removeObservers(){
@@ -346,6 +348,18 @@ extension EZRNPlayerView {
       return
     }
     self.onPlayerDidPersistContentKey?(notifiaction.userInfo)
+  }
+  
+  @objc func playerPlayFinished(_ notifiaction: Notification) {
+    self.onPlayerPlayFinished?(["code": 0])
+  }
+  
+  @objc func playerClickNextButton(_ notifiaction: Notification) {
+    self.onPlayerClickNextButton?(notifiaction.object as? [String : Any])
+  }
+  
+  @objc func playerClickSelections(_ notifiaction: Notification) {
+    self.onPlayerClickSelections?(notifiaction.object as? [String: Any])
   }
   
   private func stateName(state: EZPlayerState) -> String{

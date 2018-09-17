@@ -141,6 +141,7 @@ open class EZPlayer: NSObject {
     
     // MARK: -  player resource
     open var contentItem: EZPlayerContentItem?
+    open var selectionsModels: [SelectionsModel] = [SelectionsModel]()
     
     open private(set)  var contentURL :URL?{//readonly
         didSet{

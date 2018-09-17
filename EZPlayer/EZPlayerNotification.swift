@@ -46,6 +46,12 @@ public extension Notification.Name {
     
     ///  返回按钮
     static let EZPlayerPressBack = Notification.Name(rawValue: "com.ezplayer.EZPlayerPressBack")
+    /// 播放完成
+    static let EZPlayerPlayFinished = Notification.Name(rawValue: "com.ezplayer.EZPlayerPlayFinished")
+    /// 点击下一集
+    static let EZPlayerPressNextButton = Notification.Name(rawValue: "com.ezplayer.EZPlayerPressNextButton")
+    /// 点击选集
+    static let EZPlayerPressSelections = Notification.Name(rawValue: "com.ezplayer.EZPlayerPressSelections")
 }
 
 public extension Notification {
@@ -80,6 +86,12 @@ public extension Notification {
         public static let EZPlayerPressShare = "EZPlayerPressShare"
         /// 返回按钮
         public static let EZPlayerPressBack = "EZPlayerPressBack"
+        
+        public static let EZPlayerPlayFinished = "EZPlayerPlayFinished"
+        
+        public static let EZPlayerPressNextButton = "EZPlayerPressNextButton"
+        
+        public static let EZPlayerPressSelections = "EZPlayerPressSelections"
     }
 
 }

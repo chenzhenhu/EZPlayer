@@ -109,10 +109,7 @@ extension HHEmbeddedControlView {
         }
         
         self.player(player, progressChanging: TimeInterval(self.progressSlider.value))
-        if !player.isM3U8 {
-            self.seekToLabel.isHidden = false
-            self.seekToLabel.text = EZPlayerUtils.formatTime(position: TimeInterval(self.progressSlider.value))
-        }
+        
     }
     
     @IBAction func progressSliderTouchEnd(_ sender: Any) {
@@ -272,6 +269,7 @@ extension HHEmbeddedControlView: EZPlayerCustom {
         }
         cancel(self.hideControlViewTask)
         self.isSliding = true
+        
     }
     
     public func player(_ player: EZPlayer, progressChanging value: TimeInterval) {
@@ -282,16 +280,31 @@ extension HHEmbeddedControlView: EZPlayerCustom {
         if !self.progressSlider.isTracking {
             self.progressSlider.value = Float(value)
         }
+        if !self.centerPlayOrPauseButton.isHidden {
+            self.centerPlayOrPauseButton.isHidden = true
+        }
+        if !player.isM3U8 {
+            self.seekToLabel.isHidden = false
+            self.seekToLabel.text = EZPlayerUtils.formatTime(position: TimeInterval(self.progressSlider.value))
+        }
     }
     
     public func player(_ player: EZPlayer, progressDidChange value: TimeInterval) {
+        
         if player.isLive ?? true{
             return
         }
+        
+        if !self.bottomBarView.isHidden {
+            self.centerPlayOrPauseButton.isHidden = false
+        }
+        
+        self.seekToLabel.isHidden = true
         self.autoHideControlView()
         player.seek(to: value) { (isFinished) in
             self.isSliding = false
         }
+        
     }
     
     public func player(_ player: EZPlayer, singleTapGestureTapped singleTap: UITapGestureRecognizer) {

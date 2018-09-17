@@ -36,7 +36,7 @@
 		528EB56220FF406D003F060C /* TPPlayerControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528EB56120FF406D003F060C /* TPPlayerControlView.xib */; };
 		528EB56420FF40BC003F060C /* TPPlayerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EB56320FF40BC003F060C /* TPPlayerControlView.swift */; };
 		528EB56621006605003F060C /* TPPlayerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EB56521006605003F060C /* TPPlayerSlider.swift */; };
-		52AA8CB2214CB84B0035C4F1 /* RateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AA8CB1214CB84B0035C4F1 /* RateModel.swift */; };
+		52AA8CB2214CB84B0035C4F1 /* HHModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AA8CB1214CB84B0035C4F1 /* HHModel.swift */; };
 		52E76C89214A170F007951AB /* HHEmbeddedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E76C88214A170F007951AB /* HHEmbeddedControlView.swift */; };
 		52E76C8B214A1723007951AB /* HHEmbeddedControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E76C8A214A1723007951AB /* HHEmbeddedControlView.xib */; };
 		52E76C8D214A2C25007951AB /* HHFullScreenControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E76C8C214A2C25007951AB /* HHFullScreenControlView.swift */; };
@@ -76,7 +76,7 @@
 		528EB56120FF406D003F060C /* TPPlayerControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPPlayerControlView.xib; sourceTree = "<group>"; };
 		528EB56320FF40BC003F060C /* TPPlayerControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPPlayerControlView.swift; sourceTree = "<group>"; };
 		528EB56521006605003F060C /* TPPlayerSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPPlayerSlider.swift; sourceTree = "<group>"; };
-		52AA8CB1214CB84B0035C4F1 /* RateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateModel.swift; sourceTree = "<group>"; };
+		52AA8CB1214CB84B0035C4F1 /* HHModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HHModel.swift; sourceTree = "<group>"; };
 		52E76C88214A170F007951AB /* HHEmbeddedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HHEmbeddedControlView.swift; sourceTree = "<group>"; };
 		52E76C8A214A1723007951AB /* HHEmbeddedControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HHEmbeddedControlView.xib; sourceTree = "<group>"; };
 		52E76C8C214A2C25007951AB /* HHFullScreenControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HHFullScreenControlView.swift; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 				52E76C8C214A2C25007951AB /* HHFullScreenControlView.swift */,
 				52E76C8E214A2C8F007951AB /* HHFullScreenControlView.xib */,
 				5247E1DB214BF96B008599DC /* HHPanelViewCell.swift */,
-				52AA8CB1214CB84B0035C4F1 /* RateModel.swift */,
+				52AA8CB1214CB84B0035C4F1 /* HHModel.swift */,
 			);
 			name = Skin;
 			sourceTree = "<group>";
@@ -371,7 +371,7 @@
 				995D47AA1DFFB05500BEB41B /* EZPlayerFloatContainer.swift in Sources */,
 				99818A6E1DE9C760000DAC1C /* EZPlayerFullScreenViewController.swift in Sources */,
 				995E79241DD99E92006CE7E9 /* EZPlayer.swift in Sources */,
-				52AA8CB2214CB84B0035C4F1 /* RateModel.swift in Sources */,
+				52AA8CB2214CB84B0035C4F1 /* HHModel.swift in Sources */,
 				528EB56420FF40BC003F060C /* TPPlayerControlView.swift in Sources */,
 				9919C1441E6D545A00249407 /* EZPlayerAVAssetResourceLoaderDelegate.swift in Sources */,
 				991492341DDC166A005FF2BD /* AVAsset+EZPlayer.swift in Sources */,

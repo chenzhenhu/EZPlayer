@@ -53,7 +53,7 @@ open class HHEmbeddedControlView: UIView {
         self.seekToLabel.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         self.progressSlider.value = 0
         self.progressSlider.maximumTrackTintColor = UIColor.clear
-        self.progressSlider.minimumTrackTintColor = UIColor.red
+        self.progressSlider.minimumTrackTintColor = progressSliderTrackColor
         self.progressSlider.setThumbImage(UIImage(named: "fullplayer_progress_point", in: Bundle(for: HHEmbeddedControlView.self), compatibleWith: nil), for: .normal)
         self.progressView.progress = 0
         self.progressView.progressTintColor = UIColor.white

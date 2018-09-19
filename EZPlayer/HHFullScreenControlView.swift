@@ -18,6 +18,7 @@ enum PanelViewType {
 }
 
 public let constraintLeft: CGFloat = 76
+public let progressSliderTrackColor = UIColor(red: 215 / 255.0, green: 171 / 255.0, blue: 112 / 255.0, alpha: 1.0)
 private let cellId = "HHPanelViewCell"
 private let rates:[RateModel] = [RateModel(title: "0.8X", rate: 0.8),
                                    RateModel(title: "1.0X", rate: 1.0),
@@ -96,12 +97,13 @@ open class HHFullScreenControlView: UIView {
     override open func awakeFromNib() {
         super.awakeFromNib()
         self.resolutionButtonConstraintWidth.constant = 0
+        self.moreButton.isHidden = true
         self.previewView.isHidden = true
         self.panelView.isHidden = true
         self.panelView.addSubview(self.tableView)
         self.progressSlider.value = 0
         self.progressSlider.maximumTrackTintColor = UIColor.clear
-        self.progressSlider.minimumTrackTintColor = UIColor.red
+        self.progressSlider.minimumTrackTintColor = progressSliderTrackColor
         self.progressSlider.setThumbImage(UIImage(named: "fullplayer_progress_point", in: Bundle(for: HHFullScreenControlView.self), compatibleWith: nil), for: .normal)
         self.progressView.progress = 0
         self.progressView.progressTintColor = UIColor.white

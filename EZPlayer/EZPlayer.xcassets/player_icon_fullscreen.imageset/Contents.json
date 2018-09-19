@@ -2,16 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "video_fullscreen~iphone.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "player_icon_fullscreen@2x.png",
+      "filename" : "video_fullscreen~iphone@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "player_icon_fullscreen@3x.png",
       "scale" : "3x"
     }
   ],

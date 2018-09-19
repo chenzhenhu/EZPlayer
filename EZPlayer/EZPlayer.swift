@@ -207,7 +207,7 @@ open class EZPlayer: NSObject {
     }
     
     /// 上下滑动屏幕的控制类型
-    open var slideTrigger = (left:EZPlayerSlideTrigger.volume,right:EZPlayerSlideTrigger.brightness)
+    open var slideTrigger = (left:EZPlayerSlideTrigger.brightness,right:EZPlayerSlideTrigger.volume)
     /// 左右滑动屏幕改变视频进度
     open var canSlideProgress = true
     
